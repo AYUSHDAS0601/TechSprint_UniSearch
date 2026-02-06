@@ -1,0 +1,22 @@
+{
+  "source_url": "https://www.giet.edu/wp-content/uploads/2022/12/class-timings_20221226_0001.pdf",
+  "source_page": "https://www.giet.edu/news-events/notices/",
+  "original_link_text": "Class Timing for Students",
+  "scraped_at": 1770288142.2418644,
+  "headers": {
+    "Connection": "Keep-Alive",
+    "Keep-Alive": "timeout=5, max=100",
+    "Cache-Control": "public, max-age=31536000,public",
+    "Expires": "Fri, 05 Feb 2027 10:42:21 GMT",
+    "Content-Type": "application/pdf",
+    "Last-Modified": "Tue, 27 Dec 2022 04:29:03 GMT",
+    "Accept-Ranges": "bytes",
+    "Content-Length": "1859875",
+    "Date": "Thu, 05 Feb 2026 10:42:21 GMT",
+    "Server": "LiteSpeed",
+    "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Content-Type-Options": "nosniff",
+    "Vary": "Accept-Encoding,User-Agent"
+  }
+}

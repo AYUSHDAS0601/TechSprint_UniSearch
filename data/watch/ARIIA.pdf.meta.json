@@ -1,0 +1,22 @@
+{
+  "source_url": "https://www.giet.edu/wp-content/uploads/2020/12/ARIIA.pdf",
+  "source_page": "https://www.giet.edu/",
+  "original_link_text": "ARIIA",
+  "scraped_at": 1770288117.479967,
+  "headers": {
+    "Connection": "Keep-Alive",
+    "Keep-Alive": "timeout=5, max=100",
+    "Cache-Control": "public, max-age=31536000,public",
+    "Expires": "Fri, 05 Feb 2027 10:41:56 GMT",
+    "Content-Type": "application/pdf",
+    "Last-Modified": "Thu, 03 Dec 2020 07:09:08 GMT",
+    "Accept-Ranges": "bytes",
+    "Content-Length": "436617",
+    "Date": "Thu, 05 Feb 2026 10:41:56 GMT",
+    "Server": "LiteSpeed",
+    "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Content-Type-Options": "nosniff",
+    "Vary": "Accept-Encoding,User-Agent"
+  }
+}

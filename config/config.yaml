@@ -1,0 +1,43 @@
+directories:
+  raw: "data/raw"
+  processed: "data/processed"
+  index: "data/index"
+  watch: "data/watch"
+  metadata: "data/metadata"
+  logs: "logs"
+
+monitoring:
+  enabled: true
+  debounce_seconds: 2
+  extensions: [".pdf", ".jpg", ".jpeg", ".png"]
+
+summarization:
+  method: "mistral" # options: extract, mistral
+  sentences: 3  # Used for extractive method only
+  language: "english"
+  model_url: "http://localhost:11434/api/generate" # Ollama default
+  model_name: "mistral"
+
+scraping:
+  base_url: "https://www.giet.edu/" 
+  target_urls:
+    - "https://www.giet.edu/"
+    - "https://www.giet.edu/news-events/notices/"
+    - "https://www.giet.edu/examinations/notices/"
+    - "https://www.giet.edu/examinations/semester-end-exam-schedule/"
+  download_limit: 20
+  rate_limit: 1.5
+  retry_count: 3
+  timeout: 10
+  max_depth: 2  # How many levels deep to follow links
+  selectors:
+    container: "body" 
+    pagination: "a.next"
+
+search:
+  model_name: "all-MiniLM-L6-v2"
+  top_k: 5
+
+ui:
+  theme: "light"
+  charts_enabled: true
