@@ -1,0 +1,935 @@
+2026-02-05 11:56:19,505 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 11:56:19,506 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 11:56:25,670 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 11:56:27,538 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 11:56:27,538 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 11:56:34,391 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 11:57:35,687 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 11:57:35,692 - OCR_Module - INFO - Processing file: Student Name Correction Notice. 02.02.2026.pdf
+2026-02-05 11:57:35,696 - OCR_Module - INFO - Page 1 of Student Name Correction Notice. 02.02.2026.pdf appears scanned. Using OCR...
+2026-02-05 11:57:39,510 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 11:57:39,511 - Indexer_Module - INFO - Added 1 documents to index. Total: 1
+2026-02-05 11:57:39,511 - Search_Engine - INFO - Ingestion complete. Added 1 files.
+2026-02-05 11:57:47,437 - Search_Engine - INFO - Searching for: name 
+2026-02-05 12:01:24,462 - Search_Engine - INFO - Searching for: giet
+2026-02-05 12:01:28,774 - Search_Engine - INFO - Searching for: giet
+2026-02-05 12:01:33,988 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 12:01:33,992 - Search_Engine - INFO - No new files to ingest.
+2026-02-05 12:01:33,995 - Search_Engine - INFO - Searching for: giet
+2026-02-05 12:02:09,525 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 12:02:09,526 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 12:02:09,526 - Search_Engine - INFO - Database cleared.
+2026-02-05 12:02:09,527 - Search_Engine - INFO - Searching for: giet
+2026-02-05 12:02:11,470 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 12:02:11,472 - OCR_Module - INFO - Processing file: Student Name Correction Notice. 02.02.2026.pdf
+2026-02-05 12:02:11,473 - OCR_Module - INFO - Page 1 of Student Name Correction Notice. 02.02.2026.pdf appears scanned. Using OCR...
+2026-02-05 12:02:15,206 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 12:02:15,206 - Indexer_Module - INFO - Added 1 documents to index. Total: 1
+2026-02-05 12:02:15,206 - Search_Engine - INFO - Ingestion complete. Added 1 files.
+2026-02-05 12:02:15,208 - Search_Engine - INFO - Searching for: giet
+2026-02-05 12:05:31,722 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 12:05:31,722 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 12:05:33,016 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 12:05:33,016 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 12:05:37,042 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 12:05:37,043 - Indexer_Module - INFO - Loaded index with 1 vectors.
+2026-02-05 12:05:37,043 - Summarizer - INFO - Downloading NLTK 'punkt' tokenizer...
+2026-02-05 12:05:38,037 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 12:05:38,038 - Indexer_Module - INFO - Loaded index with 1 vectors.
+2026-02-05 12:05:41,802 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 12:05:41,803 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 12:05:44,399 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-05 12:05:47,779 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 12:05:47,779 - Indexer_Module - INFO - Loaded index with 1 vectors.
+2026-02-05 12:06:00,217 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 12:06:00,222 - OCR_Module - INFO - Processing file: Problem Statements For TechSprint.pdf
+2026-02-05 12:06:00,272 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 12:06:00,272 - Indexer_Module - INFO - Added 1 documents to index. Total: 2
+2026-02-05 12:06:00,272 - Search_Engine - INFO - Ingestion complete. Added 1 files.
+2026-02-05 12:06:14,370 - Search_Engine - INFO - Searching for: giet
+2026-02-05 12:10:42,239 - Scraper - INFO - Scraping https://example-university.edu/notices...
+2026-02-05 12:10:42,828 - Scraper - ERROR - Scraping failed: HTTPSConnectionPool(host='example-university.edu', port=443): Max retries exceeded with url: /notices (Caused by NameResolutionError("HTTPSConnection(host='example-university.edu', port=443): Failed to resolve 'example-university.edu' ([Errno -2] Name or service not known)"))
+2026-02-05 12:10:57,905 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 12:10:57,905 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 12:10:59,532 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 12:10:59,532 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 12:11:03,155 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 12:11:03,155 - Indexer_Module - INFO - Loaded index with 2 vectors.
+2026-02-05 12:11:03,170 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-05 12:11:04,906 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 12:11:04,907 - Indexer_Module - INFO - Loaded index with 2 vectors.
+2026-02-05 12:11:34,126 - Scraper - INFO - Scraping https://example-university.edu/notices...
+2026-02-05 12:11:34,132 - Scraper - ERROR - Scraping failed: HTTPSConnectionPool(host='example-university.edu', port=443): Max retries exceeded with url: /notices (Caused by NameResolutionError("HTTPSConnection(host='example-university.edu', port=443): Failed to resolve 'example-university.edu' ([Errno -2] Name or service not known)"))
+2026-02-05 12:14:26,377 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 12:14:26,382 - Search_Engine - INFO - No new files to ingest.
+2026-02-05 12:14:35,353 - Search_Engine - INFO - Searching for: ps
+2026-02-05 12:15:04,894 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 12:15:04,897 - Search_Engine - INFO - No new files to ingest.
+2026-02-05 12:15:04,900 - Search_Engine - INFO - Searching for: ps
+2026-02-05 12:29:41,153 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 12:29:41,158 - Search_Engine - INFO - No new files to ingest.
+2026-02-05 12:29:49,110 - Search_Engine - INFO - Searching for: problem
+2026-02-05 12:47:12,377 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 12:47:12,377 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 12:47:17,376 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 12:47:17,399 - DocumentProcessor - INFO - Processing file: test_notice.txt
+2026-02-05 12:47:17,399 - OCR_Module - INFO - Processing file: test_notice.txt
+2026-02-05 12:47:17,399 - OCR_Module - WARNING - Unsupported file format: .txt
+2026-02-05 12:47:17,399 - DocumentProcessor - WARNING - No content extracted from test_notice.txt
+2026-02-05 15:25:07,081 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 15:25:07,081 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 15:25:15,015 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 15:25:15,015 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 15:25:15,020 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 15:25:15,020 - Indexer_Module - INFO - Added 3 documents to index. Total: 3
+2026-02-05 15:25:15,020 - Search_Engine - INFO - Searching for: query with filters: None
+2026-02-05 15:25:15,021 - Search_Engine - INFO - Searching for: query with filters: {'categories': ['Exam']}
+2026-02-05 15:25:15,021 - Search_Engine - INFO - Searching for: query with filters: {'categories': ['Scholarship']}
+2026-02-05 15:25:15,021 - Search_Engine - INFO - Searching for: query with filters: {'categories': ['Exam', 'Holiday']}
+2026-02-05 15:26:50,369 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 15:26:50,370 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 15:26:51,751 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 15:26:51,751 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 15:26:56,074 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 15:26:56,096 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-05 15:26:57,138 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 15:27:22,931 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['Holiday']}
+2026-02-05 15:27:33,568 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['Holiday']}
+2026-02-05 15:35:18,493 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 15:35:18,493 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 15:35:26,065 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 15:35:39,183 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['General']}
+2026-02-05 15:35:48,192 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['General']}
+2026-02-05 15:35:56,315 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['General']}
+2026-02-05 15:36:42,172 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['General']}
+2026-02-05 15:37:01,702 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['General']}
+2026-02-05 15:37:04,588 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 15:37:04,802 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 15:37:04,802 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 15:37:11,209 - Indexer_Module - INFO - Creating new FAISS index (dim=384)...
+2026-02-05 15:37:11,228 - DocumentProcessor - INFO - Processing file: Problem Statements For TechSprint.pdf
+2026-02-05 15:37:11,228 - OCR_Module - INFO - Processing file: Problem Statements For TechSprint.pdf
+2026-02-05 15:37:11,312 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 15:37:11,312 - Indexer_Module - INFO - Added 1 documents to index. Total: 1
+2026-02-05 15:37:11,347 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 15:37:11,347 - Indexer_Module - INFO - Added 1 documents to index. Total: 2
+2026-02-05 15:37:11,348 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 15:37:11,348 - Indexer_Module - INFO - Loaded index with 2 vectors.
+2026-02-05 15:37:11,348 - Search_Engine - INFO - Ingestion complete. Added 1 files.
+2026-02-05 15:37:11,350 - Search_Engine - INFO - Searching for: Giet with filters: {'categories': ['General']}
+2026-02-05 15:37:18,789 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 15:37:36,464 - Search_Engine - INFO - Searching for: gdg with filters: None
+2026-02-05 15:37:47,825 - Search_Engine - INFO - Searching for: gdg with filters: None
+2026-02-05 15:48:53,422 - Search_Engine - INFO - Searching for: gdg with filters: None
+2026-02-05 15:51:21,691 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 15:51:21,691 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 15:51:27,994 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 15:51:27,995 - Indexer_Module - INFO - Loaded index with 2 vectors.
+2026-02-05 15:56:52,714 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 16:11:12,717 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 16:11:12,718 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 16:11:19,844 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 16:11:19,845 - Indexer_Module - INFO - Loaded index with 2 vectors.
+2026-02-05 16:11:35,158 - Scraper - INFO - Starting crawl from 4 seed URL(s)
+2026-02-05 16:11:35,158 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/
+2026-02-05 16:11:35,839 - Scraper - INFO - Downloading: University Act 2018... (https://www.giet.edu/wp-content/uploads/2020/01/GIET-UNIVERSITY-Notification-with-Act-2-351.pdf)
+2026-02-05 16:11:37,001 - Scraper - INFO - ✓ Saved: GIET-UNIVERSITY-Notification-with-Act-2-351.pdf
+2026-02-05 16:11:37,002 - Scraper - INFO - Downloaded 1/20 files
+2026-02-05 16:11:38,503 - Scraper - INFO - Downloading: Mandatory Disclosures... (https://www.giet.edu/wp-content/uploads/2025/12/Mandatory-Disclosures-GIETU.pdf)
+2026-02-05 16:11:40,723 - Scraper - INFO - ✓ Saved: Mandatory-Disclosures-GIETU.pdf
+2026-02-05 16:11:40,723 - Scraper - INFO - Downloaded 2/20 files
+2026-02-05 16:11:42,224 - Scraper - INFO - Downloading: MoUs... (https://www.giet.edu/wp-content/uploads/2022/05/MoU-27.5.22.pdf)
+2026-02-05 16:11:42,826 - Scraper - INFO - ✓ Saved: MoU-27.5.22.pdf
+2026-02-05 16:11:42,826 - Scraper - INFO - Downloaded 3/20 files
+2026-02-05 16:11:44,332 - Scraper - INFO - Downloading: COVID-19 Cell... (https://www.giet.edu/wp-content/uploads/2020/06/COVID-CELL.pdf)
+2026-02-05 16:11:45,406 - Scraper - INFO - ✓ Saved: COVID-CELL.pdf
+2026-02-05 16:11:45,406 - Scraper - INFO - Downloaded 4/20 files
+2026-02-05 16:11:46,907 - Scraper - INFO - Downloading: Student Pursuing Higher Studies... (https://www.giet.edu/GIETStudents/Student%20Pursuing%20Higher%20Study.pdf)
+2026-02-05 16:11:48,525 - Scraper - INFO - ✓ Saved: Student%20Pursuing%20Higher%20Study.pdf
+2026-02-05 16:11:48,526 - Scraper - INFO - Downloaded 5/20 files
+2026-02-05 16:11:50,028 - Scraper - INFO - Downloading: Mandatory Disclosures... (https://www.giet.edu/wp-content/uploads/2025/01/MANDATORY-DISCLOSURES-.pdf)
+2026-02-05 16:11:51,226 - Scraper - INFO - ✓ Saved: MANDATORY-DISCLOSURES-.pdf
+2026-02-05 16:11:51,227 - Scraper - INFO - Downloaded 6/20 files
+2026-02-05 16:11:52,728 - Scraper - INFO - Downloading: R & D... (https://www.giet.edu/wp-content/uploads/2020/02/DSIR-2020.pdf)
+2026-02-05 16:11:54,924 - Scraper - INFO - ✓ Saved: DSIR-2020.pdf
+2026-02-05 16:11:54,925 - Scraper - INFO - Downloaded 7/20 files
+2026-02-05 16:11:56,426 - Scraper - INFO - Downloading: ARIIA... (https://www.giet.edu/wp-content/uploads/2020/12/ARIIA.pdf)
+2026-02-05 16:11:57,481 - Scraper - INFO - ✓ Saved: ARIIA.pdf
+2026-02-05 16:11:57,482 - Scraper - INFO - Downloaded 8/20 files
+2026-02-05 16:11:58,983 - Scraper - INFO - Downloading: University Statutes... (https://www.giet.edu/wp-content/uploads/2025/04/University-Statutes.pdf)
+2026-02-05 16:12:00,472 - Scraper - INFO - ✓ Saved: University-Statutes.pdf
+2026-02-05 16:12:00,472 - Scraper - INFO - Downloaded 9/20 files
+2026-02-05 16:12:01,974 - Scraper - INFO - Downloading: IP Policy... (https://www.giet.edu/wp-content/uploads/2025/05/IP-Policy-GIET-University-Ver-01.pdf)
+2026-02-05 16:12:02,732 - Scraper - INFO - ✓ Saved: IP-Policy-GIET-University-Ver-01.pdf
+2026-02-05 16:12:02,732 - Scraper - INFO - Downloaded 10/20 files
+2026-02-05 16:12:04,233 - Scraper - INFO - Downloading: Fire Safety Certificate... (https://www.giet.edu/wp-content/uploads/2025/05/Fire-Safety-Certificate-23-25.pdf)
+2026-02-05 16:12:04,808 - Scraper - INFO - ✓ Saved: Fire-Safety-Certificate-23-25.pdf
+2026-02-05 16:12:04,809 - Scraper - INFO - Downloaded 11/20 files
+2026-02-05 16:12:06,311 - Scraper - INFO - Downloading: Mandatory Disclosures... (https://www.giet.edu/wp-content/uploads/2022/04/MANDATORY-DISCLOSURES.pdf)
+2026-02-05 16:12:07,319 - Scraper - INFO - ✓ Saved: MANDATORY-DISCLOSURES.pdf
+2026-02-05 16:12:07,320 - Scraper - INFO - Downloaded 12/20 files
+2026-02-05 16:12:10,327 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/news-events/notices/
+2026-02-05 16:12:10,868 - Scraper - INFO - Downloading: Blood Donation Camp on 22.03.2023... (https://www.giet.edu/wp-content/uploads/2023/03/blood-donation-camp-on-22.03.2023.pdf)
+2026-02-05 16:12:11,283 - Scraper - INFO - ✓ Saved: blood-donation-camp-on-22.03.2023.pdf
+2026-02-05 16:12:11,283 - Scraper - INFO - Downloaded 13/20 files
+2026-02-05 16:12:12,783 - Scraper - INFO - Downloading: Constituation of IAIP... (https://www.giet.edu/wp-content/uploads/2023/02/Constituation-of-IAIP.pdf)
+2026-02-05 16:12:13,789 - Scraper - INFO - ✓ Saved: Constituation-of-IAIP.pdf
+2026-02-05 16:12:13,790 - Scraper - INFO - Downloaded 14/20 files
+2026-02-05 16:12:15,290 - Scraper - INFO - Downloading: ADMISSION INTO THE Ph.D. PROGRAMME-2022-... (https://www.giet.edu/wp-content/uploads/2023/02/ADMISSION-PHD-PROGRAMME-2022-23-WINTER.pdf)
+2026-02-05 16:12:17,005 - Scraper - INFO - ✓ Saved: ADMISSION-PHD-PROGRAMME-2022-23-WINTER.pdf
+2026-02-05 16:12:17,006 - Scraper - INFO - Downloaded 15/20 files
+2026-02-05 16:12:18,507 - Scraper - INFO - Downloading: MAKAR SANKRANTI HOLIDAY... (https://www.giet.edu/wp-content/uploads/2023/01/Circular-Makar-Sankrnti-Holiday.pdf)
+2026-02-05 16:12:19,283 - Scraper - INFO - ✓ Saved: Circular-Makar-Sankrnti-Holiday.pdf
+2026-02-05 16:12:19,284 - Scraper - INFO - Downloaded 16/20 files
+2026-02-05 16:12:20,785 - Scraper - INFO - Downloading: Class Timing for Students... (https://www.giet.edu/wp-content/uploads/2022/12/class-timings_20221226_0001.pdf)
+2026-02-05 16:12:22,242 - Scraper - INFO - ✓ Saved: class-timings_20221226_0001.pdf
+2026-02-05 16:12:22,243 - Scraper - INFO - Downloaded 17/20 files
+2026-02-05 16:12:23,744 - Scraper - INFO - Downloading: Enrollment in NCC (2022-23)... (https://www.giet.edu/wp-content/uploads/2022/11/Enrollment-in-NCC-2022-2023.pdf)
+2026-02-05 16:12:24,567 - Scraper - INFO - ✓ Saved: Enrollment-in-NCC-2022-2023.pdf
+2026-02-05 16:12:24,568 - Scraper - INFO - Downloaded 18/20 files
+2026-02-05 16:12:27,582 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/examinations/notices/
+2026-02-05 16:12:27,987 - Scraper - INFO - Downloading: Student Name Correction Notice. 02.02.20... (https://www.giet.edu/wp-content/uploads/2026/02/Student-Name-Correction-Notice.-02.02.2026.pdf)
+2026-02-05 16:12:28,887 - Scraper - INFO - ✓ Saved: Student-Name-Correction-Notice.-02.02.2026.pdf
+2026-02-05 16:12:28,887 - Scraper - INFO - Downloaded 19/20 files
+2026-02-05 16:12:30,387 - Scraper - INFO - Downloading: M.Sc. 1st Semester Rescheduled Notice... (https://www.giet.edu/wp-content/uploads/2026/01/M.Sc-1st-Semester-Rescheduled-Notice.pdf)
+2026-02-05 16:12:31,005 - Scraper - INFO - ✓ Saved: M.Sc-1st-Semester-Rescheduled-Notice.pdf
+2026-02-05 16:12:31,005 - Scraper - INFO - Downloaded 20/20 files
+2026-02-05 16:12:34,005 - Scraper - INFO - Crawl complete. Downloaded 20 files, visited 3 pages
+2026-02-05 16:16:54,754 - Scraper - INFO - Starting crawl from 4 seed URL(s)
+2026-02-05 16:16:54,754 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/
+2026-02-05 16:16:56,883 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/news-events/notices/
+2026-02-05 16:16:58,921 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/examinations/notices/
+2026-02-05 16:16:59,299 - Scraper - INFO - Downloading: B. Sc. Nursing Subject Registration for ... (https://www.giet.edu/wp-content/uploads/2026/01/B.-Sc.-Nursing-Subject-Registration-for-Supplementary-Examinations-Notice.pdf)
+2026-02-05 16:16:59,821 - Scraper - INFO - ✓ Saved: B.-Sc.-Nursing-Subject-Registration-for-Supplementary-Examinations-Notice.pdf
+2026-02-05 16:16:59,822 - Scraper - INFO - Downloaded 1/20 files
+2026-02-05 16:17:01,322 - Scraper - INFO - Downloading: B. Sc. Nursing (Batch 2022-2026) 5th Sem... (https://www.giet.edu/wp-content/uploads/2026/01/B.-Sc.-Nursing-Batch-2022-2026-5th-Semester-Subject-Registration-for-Supplementary-Examination-Notice.pdf)
+2026-02-05 16:17:01,993 - Scraper - INFO - ✓ Saved: B.-Sc.-Nursing-Batch-2022-2026-5th-Semester-Subject-Registration-for-Supplementary-Examination-Notice.pdf
+2026-02-05 16:17:01,994 - Scraper - INFO - Downloaded 2/20 files
+2026-02-05 16:17:03,494 - Scraper - INFO - Downloading: B. Sc. Nursing (Batch 2022-2026) 6th & B... (https://www.giet.edu/wp-content/uploads/2026/01/B.-Sc.-Nursing-Batch-2022-2026-6th-B.-Sc.-Nursing-Batch-2023-2027-5th-Semester-Form-Fill-up-Notice.pdf)
+2026-02-05 16:17:04,432 - Scraper - INFO - ✓ Saved: B.-Sc.-Nursing-Batch-2022-2026-6th-B.-Sc.-Nursing-Batch-2023-2027-5th-Semester-Form-Fill-up-Notice.pdf
+2026-02-05 16:17:04,433 - Scraper - INFO - Downloaded 3/20 files
+2026-02-05 16:17:05,933 - Scraper - INFO - Downloading: Diploma (Batch 2025-2028) First Semester... (https://www.giet.edu/wp-content/uploads/2026/01/Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice-1.pdf)
+2026-02-05 16:17:06,497 - Scraper - INFO - ✓ Saved: Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice-1.pdf
+2026-02-05 16:17:06,498 - Scraper - INFO - Downloaded 4/20 files
+2026-02-05 16:17:07,998 - Scraper - INFO - Downloading: M. Sc. Ag. & M. Sc. Hort. (Batch 2024-20... (https://www.giet.edu/wp-content/uploads/2026/01/M.-Sc.-Ag.-M.-Sc.-Hort.-Batch-2024-2026-4th-Semester-Registration-Notice.pdf)
+2026-02-05 16:17:08,881 - Scraper - INFO - ✓ Saved: M.-Sc.-Ag.-M.-Sc.-Hort.-Batch-2024-2026-4th-Semester-Registration-Notice.pdf
+2026-02-05 16:17:08,881 - Scraper - INFO - Downloaded 5/20 files
+2026-02-05 16:17:10,382 - Scraper - INFO - Downloading: B.Sc. (Hons) Agriculture (Batch 2024-202... (https://www.giet.edu/wp-content/uploads/2026/01/B.Sc_.-Hons-Agriculture-Batch-2024-2028-3rd-Semester-Rechecking-Notice.pdf)
+2026-02-05 16:17:11,142 - Scraper - INFO - ✓ Saved: B.Sc_.-Hons-Agriculture-Batch-2024-2028-3rd-Semester-Rechecking-Notice.pdf
+2026-02-05 16:17:11,142 - Scraper - INFO - Downloaded 6/20 files
+2026-02-05 16:17:12,643 - Scraper - INFO - Downloading: Diploma (Batch 2025-2028) First Semester... (https://www.giet.edu/wp-content/uploads/2026/01/Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice.pdf)
+2026-02-05 16:17:13,236 - Scraper - INFO - ✓ Saved: Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice.pdf
+2026-02-05 16:17:13,236 - Scraper - INFO - Downloaded 7/20 files
+2026-02-05 16:17:14,736 - Scraper - INFO - Downloading: Ph. D. Synopsis submission fee... (https://www.giet.edu/wp-content/uploads/2026/01/Ph.-D.-Synopsis-submission-fee.pdf)
+2026-02-05 16:17:15,879 - Scraper - INFO - ✓ Saved: Ph.-D.-Synopsis-submission-fee.pdf
+2026-02-05 16:17:15,879 - Scraper - INFO - Downloaded 8/20 files
+2026-02-05 16:17:17,379 - Scraper - INFO - Downloading: B.Tech – Aeronautical Engineering Regist... (https://www.giet.edu/wp-content/uploads/2026/01/B.Tech-Aeronautical-Engineering-Registration-Form-Fill-up-Notice.pdf)
+2026-02-05 16:17:18,441 - Scraper - INFO - ✓ Saved: B.Tech-Aeronautical-Engineering-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 16:17:18,441 - Scraper - INFO - Downloaded 9/20 files
+2026-02-05 16:17:19,942 - Scraper - INFO - Downloading: Even sem Registration Notice... (https://www.giet.edu/wp-content/uploads/2026/01/Even-sem-Registration-Notice.pdf)
+2026-02-05 16:17:20,440 - Scraper - INFO - ✓ Saved: Even-sem-Registration-Notice.pdf
+2026-02-05 16:17:20,441 - Scraper - INFO - Downloaded 10/20 files
+2026-02-05 16:17:21,942 - Scraper - INFO - Downloading: Rechecking Notice.... (https://www.giet.edu/wp-content/uploads/2026/01/Rechecking-Notice.pdf)
+2026-02-05 16:17:22,506 - Scraper - INFO - ✓ Saved: Rechecking-Notice.pdf
+2026-02-05 16:17:22,506 - Scraper - INFO - Downloaded 11/20 files
+2026-02-05 16:17:24,007 - Scraper - INFO - Downloading: Collection of Original Certificates... (https://www.giet.edu/wp-content/uploads/2026/01/Collection-of-Original-Certificates.pdf)
+2026-02-05 16:17:25,123 - Scraper - INFO - ✓ Saved: Collection-of-Original-Certificates.pdf
+2026-02-05 16:17:25,124 - Scraper - INFO - Downloaded 12/20 files
+2026-02-05 16:17:26,624 - Scraper - INFO - Downloading: B. Sc. (Hons) Agriculture. Form Fill up ... (https://www.giet.edu/wp-content/uploads/2025/12/B.-Sc.-Hons-Agriculture.-Form-Fill-up-Notice.pdf)
+2026-02-05 16:17:27,409 - Scraper - INFO - ✓ Saved: B.-Sc.-Hons-Agriculture.-Form-Fill-up-Notice.pdf
+2026-02-05 16:17:27,409 - Scraper - INFO - Downloaded 13/20 files
+2026-02-05 16:17:28,909 - Scraper - INFO - Downloading: BBA & BCA (2023 – 2026 Batch) 1st semest... (https://www.giet.edu/wp-content/uploads/2025/12/BBA-BCA-2023-2026-Batch-1st-semester-Supplementary-Exam-Registration-Notice.pdf)
+2026-02-05 16:17:29,484 - Scraper - INFO - ✓ Saved: BBA-BCA-2023-2026-Batch-1st-semester-Supplementary-Exam-Registration-Notice.pdf
+2026-02-05 16:17:29,485 - Scraper - INFO - Downloaded 14/20 files
+2026-02-05 16:17:30,985 - Scraper - INFO - Downloading: Subject Registration for the Supplementa... (https://www.giet.edu/wp-content/uploads/2025/12/Subject-Registration-for-the-Supplementary-Examinations-Notice.pdf)
+2026-02-05 16:17:32,055 - Scraper - INFO - ✓ Saved: Subject-Registration-for-the-Supplementary-Examinations-Notice.pdf
+2026-02-05 16:17:32,055 - Scraper - INFO - Downloaded 15/20 files
+2026-02-05 16:17:33,556 - Scraper - INFO - Downloading: Form Fill up for End Semester Examinatio... (https://www.giet.edu/wp-content/uploads/2025/12/Form-Fill-up-for-End-Semester-Examinations-Notice.pdf)
+2026-02-05 16:17:34,696 - Scraper - INFO - ✓ Saved: Form-Fill-up-for-End-Semester-Examinations-Notice.pdf
+2026-02-05 16:17:34,696 - Scraper - INFO - Downloaded 16/20 files
+2026-02-05 16:17:36,197 - Scraper - INFO - Downloading: M. Sc. (Ag) & M. Sc. Hort.) Form Fill up... (https://www.giet.edu/wp-content/uploads/2025/12/M.-Sc.-Ag-M.-Sc.-Hort.-Form-Fill-up-Notice-for-Semester-End-Examinations.pdf)
+2026-02-05 16:17:37,120 - Scraper - INFO - ✓ Saved: M.-Sc.-Ag-M.-Sc.-Hort.-Form-Fill-up-Notice-for-Semester-End-Examinations.pdf
+2026-02-05 16:17:37,120 - Scraper - INFO - Downloaded 17/20 files
+2026-02-05 16:17:38,621 - Scraper - INFO - Downloading: NOTICE FOR ADAMISSTON INTO THE Ph.D. PRO... (https://www.giet.edu/wp-content/uploads/2025/11/NOTICE-FOR-ADAMISSTON-INTO-THE-Ph.D.-PROGRAME-2025-26-Winter.pdf)
+2026-02-05 16:17:39,549 - Scraper - INFO - ✓ Saved: NOTICE-FOR-ADAMISSTON-INTO-THE-Ph.D.-PROGRAME-2025-26-Winter.pdf
+2026-02-05 16:17:39,549 - Scraper - INFO - Downloaded 18/20 files
+2026-02-05 16:17:41,050 - Scraper - INFO - Downloading: Suspend of Classes... (https://www.giet.edu/wp-content/uploads/2025/11/Suspend-of-Classes.pdf)
+2026-02-05 16:17:41,580 - Scraper - INFO - ✓ Saved: Suspend-of-Classes.pdf
+2026-02-05 16:17:41,581 - Scraper - INFO - Downloaded 19/20 files
+2026-02-05 16:17:43,081 - Scraper - INFO - Downloading: Reschedule of Exam... (https://www.giet.edu/wp-content/uploads/2025/11/Reschedule-of-Exam.pdf)
+2026-02-05 16:17:43,512 - Scraper - INFO - ✓ Saved: Reschedule-of-Exam.pdf
+2026-02-05 16:17:43,512 - Scraper - INFO - Downloaded 20/20 files
+2026-02-05 16:17:46,513 - Scraper - INFO - Crawl complete. Downloaded 20 files, visited 3 pages
+2026-02-05 16:18:06,949 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 16:19:47,224 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 16:19:47,228 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 16:19:54,323 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 16:19:54,323 - Indexer_Module - INFO - Loaded index with 2 vectors.
+2026-02-05 16:20:21,243 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 16:20:56,480 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 16:21:01,926 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 16:21:14,461 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 16:21:17,792 - Search_Engine - INFO - Starting ingestion process...
+2026-02-05 16:21:17,965 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 16:21:17,965 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 16:21:24,151 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 16:21:24,152 - Indexer_Module - INFO - Loaded index with 2 vectors.
+2026-02-05 16:21:24,167 - DocumentProcessor - INFO - Processing file: B.-Sc.-Nursing-Batch-2022-2026-6th-B.-Sc.-Nursing-Batch-2023-2027-5th-Semester-Form-Fill-up-Notice.pdf
+2026-02-05 16:21:24,167 - OCR_Module - INFO - Processing file: B.-Sc.-Nursing-Batch-2022-2026-6th-B.-Sc.-Nursing-Batch-2023-2027-5th-Semester-Form-Fill-up-Notice.pdf
+2026-02-05 16:21:24,168 - OCR_Module - INFO - Page 1 of B.-Sc.-Nursing-Batch-2022-2026-6th-B.-Sc.-Nursing-Batch-2023-2027-5th-Semester-Form-Fill-up-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:21:26,758 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:26,758 - Indexer_Module - INFO - Added 1 documents to index. Total: 3
+2026-02-05 16:21:26,794 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:26,794 - Indexer_Module - INFO - Added 1 documents to index. Total: 4
+2026-02-05 16:21:26,794 - DocumentProcessor - INFO - Processing file: ADMISSION-PHD-PROGRAMME-2022-23-WINTER.pdf
+2026-02-05 16:21:26,794 - OCR_Module - INFO - Processing file: ADMISSION-PHD-PROGRAMME-2022-23-WINTER.pdf
+2026-02-05 16:21:26,952 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:26,952 - Indexer_Module - INFO - Added 1 documents to index. Total: 5
+2026-02-05 16:21:26,984 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:26,984 - Indexer_Module - INFO - Added 1 documents to index. Total: 6
+2026-02-05 16:21:26,984 - DocumentProcessor - INFO - Processing file: ARIIA.pdf
+2026-02-05 16:21:26,984 - OCR_Module - INFO - Processing file: ARIIA.pdf
+2026-02-05 16:21:27,016 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:27,016 - Indexer_Module - INFO - Added 1 documents to index. Total: 7
+2026-02-05 16:21:27,035 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:27,036 - Indexer_Module - INFO - Added 1 documents to index. Total: 8
+2026-02-05 16:21:27,036 - DocumentProcessor - INFO - Processing file: B.-Sc.-Hons-Agriculture.-Form-Fill-up-Notice.pdf
+2026-02-05 16:21:27,036 - OCR_Module - INFO - Processing file: B.-Sc.-Hons-Agriculture.-Form-Fill-up-Notice.pdf
+2026-02-05 16:21:27,036 - OCR_Module - INFO - Page 1 of B.-Sc.-Hons-Agriculture.-Form-Fill-up-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:21:29,068 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:29,068 - Indexer_Module - INFO - Added 1 documents to index. Total: 9
+2026-02-05 16:21:29,098 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:29,098 - Indexer_Module - INFO - Added 1 documents to index. Total: 10
+2026-02-05 16:21:29,099 - DocumentProcessor - INFO - Processing file: B.-Sc.-Nursing-Batch-2022-2026-5th-Semester-Subject-Registration-for-Supplementary-Examination-Notice.pdf
+2026-02-05 16:21:29,099 - OCR_Module - INFO - Processing file: B.-Sc.-Nursing-Batch-2022-2026-5th-Semester-Subject-Registration-for-Supplementary-Examination-Notice.pdf
+2026-02-05 16:21:29,099 - OCR_Module - INFO - Page 1 of B.-Sc.-Nursing-Batch-2022-2026-5th-Semester-Subject-Registration-for-Supplementary-Examination-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:21:31,322 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:31,322 - Indexer_Module - INFO - Added 1 documents to index. Total: 11
+2026-02-05 16:21:31,355 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:31,356 - Indexer_Module - INFO - Added 1 documents to index. Total: 12
+2026-02-05 16:21:31,356 - DocumentProcessor - INFO - Processing file: B.-Sc.-Nursing-Subject-Registration-for-Supplementary-Examinations-Notice.pdf
+2026-02-05 16:21:31,356 - OCR_Module - INFO - Processing file: B.-Sc.-Nursing-Subject-Registration-for-Supplementary-Examinations-Notice.pdf
+2026-02-05 16:21:31,356 - OCR_Module - INFO - Page 1 of B.-Sc.-Nursing-Subject-Registration-for-Supplementary-Examinations-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:21:33,931 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:33,931 - Indexer_Module - INFO - Added 1 documents to index. Total: 13
+2026-02-05 16:21:33,962 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:33,962 - Indexer_Module - INFO - Added 1 documents to index. Total: 14
+2026-02-05 16:21:33,962 - DocumentProcessor - INFO - Processing file: B.Sc_.-Hons-Agriculture-Batch-2024-2028-3rd-Semester-Rechecking-Notice.pdf
+2026-02-05 16:21:33,962 - OCR_Module - INFO - Processing file: B.Sc_.-Hons-Agriculture-Batch-2024-2028-3rd-Semester-Rechecking-Notice.pdf
+2026-02-05 16:21:33,963 - OCR_Module - INFO - Page 1 of B.Sc_.-Hons-Agriculture-Batch-2024-2028-3rd-Semester-Rechecking-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:21:36,496 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:36,496 - Indexer_Module - INFO - Added 1 documents to index. Total: 15
+2026-02-05 16:21:36,528 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:36,528 - Indexer_Module - INFO - Added 1 documents to index. Total: 16
+2026-02-05 16:21:36,529 - DocumentProcessor - INFO - Processing file: B.Tech-Aeronautical-Engineering-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 16:21:36,529 - OCR_Module - INFO - Processing file: B.Tech-Aeronautical-Engineering-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 16:21:36,529 - OCR_Module - INFO - Page 1 of B.Tech-Aeronautical-Engineering-Registration-Form-Fill-up-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:21:39,233 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:39,233 - Indexer_Module - INFO - Added 1 documents to index. Total: 17
+2026-02-05 16:21:39,269 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:39,269 - Indexer_Module - INFO - Added 1 documents to index. Total: 18
+2026-02-05 16:21:39,269 - DocumentProcessor - INFO - Processing file: BBA-BCA-2023-2026-Batch-1st-semester-Supplementary-Exam-Registration-Notice.pdf
+2026-02-05 16:21:39,269 - OCR_Module - INFO - Processing file: BBA-BCA-2023-2026-Batch-1st-semester-Supplementary-Exam-Registration-Notice.pdf
+2026-02-05 16:21:39,270 - OCR_Module - INFO - Page 1 of BBA-BCA-2023-2026-Batch-1st-semester-Supplementary-Exam-Registration-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:21:41,543 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:41,543 - Indexer_Module - INFO - Added 1 documents to index. Total: 19
+2026-02-05 16:21:41,578 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:41,578 - Indexer_Module - INFO - Added 1 documents to index. Total: 20
+2026-02-05 16:21:41,578 - DocumentProcessor - INFO - Processing file: blood-donation-camp-on-22.03.2023.pdf
+2026-02-05 16:21:41,578 - OCR_Module - INFO - Processing file: blood-donation-camp-on-22.03.2023.pdf
+2026-02-05 16:21:41,612 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:41,612 - Indexer_Module - INFO - Added 1 documents to index. Total: 21
+2026-02-05 16:21:41,645 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:41,645 - Indexer_Module - INFO - Added 1 documents to index. Total: 22
+2026-02-05 16:21:41,645 - DocumentProcessor - INFO - Processing file: Circular-Makar-Sankrnti-Holiday.pdf
+2026-02-05 16:21:41,646 - OCR_Module - INFO - Processing file: Circular-Makar-Sankrnti-Holiday.pdf
+2026-02-05 16:21:41,646 - OCR_Module - INFO - Page 1 of Circular-Makar-Sankrnti-Holiday.pdf appears scanned. Using OCR...
+2026-02-05 16:21:43,836 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:43,836 - Indexer_Module - INFO - Added 1 documents to index. Total: 23
+2026-02-05 16:21:43,871 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:43,871 - Indexer_Module - INFO - Added 1 documents to index. Total: 24
+2026-02-05 16:21:43,871 - DocumentProcessor - INFO - Processing file: class-timings_20221226_0001.pdf
+2026-02-05 16:21:43,871 - OCR_Module - INFO - Processing file: class-timings_20221226_0001.pdf
+2026-02-05 16:21:43,871 - OCR_Module - INFO - Page 1 of class-timings_20221226_0001.pdf appears scanned. Using OCR...
+2026-02-05 16:21:47,188 - OCR_Module - INFO - Page 2 of class-timings_20221226_0001.pdf appears scanned. Using OCR...
+2026-02-05 16:21:48,371 - OCR_Module - INFO - Page 3 of class-timings_20221226_0001.pdf appears scanned. Using OCR...
+2026-02-05 16:21:50,495 - OCR_Module - INFO - Page 4 of class-timings_20221226_0001.pdf appears scanned. Using OCR...
+2026-02-05 16:21:52,026 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:52,026 - Indexer_Module - INFO - Added 1 documents to index. Total: 25
+2026-02-05 16:21:52,059 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:52,059 - Indexer_Module - INFO - Added 1 documents to index. Total: 26
+2026-02-05 16:21:52,059 - DocumentProcessor - INFO - Processing file: Collection-of-Original-Certificates.pdf
+2026-02-05 16:21:52,059 - OCR_Module - INFO - Processing file: Collection-of-Original-Certificates.pdf
+2026-02-05 16:21:52,060 - OCR_Module - INFO - Page 1 of Collection-of-Original-Certificates.pdf appears scanned. Using OCR...
+2026-02-05 16:21:55,338 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:55,338 - Indexer_Module - INFO - Added 1 documents to index. Total: 27
+2026-02-05 16:21:55,371 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:55,371 - Indexer_Module - INFO - Added 1 documents to index. Total: 28
+2026-02-05 16:21:55,371 - DocumentProcessor - INFO - Processing file: Constituation-of-IAIP.pdf
+2026-02-05 16:21:55,372 - OCR_Module - INFO - Processing file: Constituation-of-IAIP.pdf
+2026-02-05 16:21:55,405 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:55,405 - Indexer_Module - INFO - Added 1 documents to index. Total: 29
+2026-02-05 16:21:55,437 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:21:55,437 - Indexer_Module - INFO - Added 1 documents to index. Total: 30
+2026-02-05 16:21:55,437 - DocumentProcessor - INFO - Processing file: COVID-CELL.pdf
+2026-02-05 16:21:55,437 - OCR_Module - INFO - Processing file: COVID-CELL.pdf
+2026-02-05 16:21:55,438 - OCR_Module - INFO - Page 1 of COVID-CELL.pdf appears scanned. Using OCR...
+2026-02-05 16:22:01,361 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:01,361 - Indexer_Module - INFO - Added 1 documents to index. Total: 31
+2026-02-05 16:22:01,397 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:01,397 - Indexer_Module - INFO - Added 1 documents to index. Total: 32
+2026-02-05 16:22:01,397 - DocumentProcessor - INFO - Processing file: Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice-1.pdf
+2026-02-05 16:22:01,397 - OCR_Module - INFO - Processing file: Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice-1.pdf
+2026-02-05 16:22:01,398 - OCR_Module - INFO - Page 1 of Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice-1.pdf appears scanned. Using OCR...
+2026-02-05 16:22:04,090 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:04,090 - Indexer_Module - INFO - Added 1 documents to index. Total: 33
+2026-02-05 16:22:04,120 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:04,120 - Indexer_Module - INFO - Added 1 documents to index. Total: 34
+2026-02-05 16:22:04,120 - DocumentProcessor - INFO - Processing file: Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice.pdf
+2026-02-05 16:22:04,120 - OCR_Module - INFO - Processing file: Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice.pdf
+2026-02-05 16:22:04,121 - OCR_Module - INFO - Page 1 of Diploma-Batch-2025-2028-First-Semester-Registration-Form-Fill-Up-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:22:06,933 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:06,934 - Indexer_Module - INFO - Added 1 documents to index. Total: 35
+2026-02-05 16:22:06,967 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:06,967 - Indexer_Module - INFO - Added 1 documents to index. Total: 36
+2026-02-05 16:22:06,967 - DocumentProcessor - INFO - Processing file: DSIR-2020.pdf
+2026-02-05 16:22:06,968 - OCR_Module - INFO - Processing file: DSIR-2020.pdf
+2026-02-05 16:22:06,968 - OCR_Module - INFO - Page 1 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:09,738 - OCR_Module - INFO - Page 2 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:13,420 - OCR_Module - INFO - Page 3 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:16,728 - OCR_Module - INFO - Page 4 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:20,068 - OCR_Module - INFO - Page 5 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:23,041 - OCR_Module - INFO - Page 6 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:26,419 - OCR_Module - INFO - Page 7 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:29,496 - OCR_Module - INFO - Page 8 of DSIR-2020.pdf appears scanned. Using OCR...
+2026-02-05 16:22:33,274 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:33,274 - Indexer_Module - INFO - Added 1 documents to index. Total: 37
+2026-02-05 16:22:33,309 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:33,309 - Indexer_Module - INFO - Added 1 documents to index. Total: 38
+2026-02-05 16:22:33,309 - DocumentProcessor - INFO - Processing file: Enrollment-in-NCC-2022-2023.pdf
+2026-02-05 16:22:33,309 - OCR_Module - INFO - Processing file: Enrollment-in-NCC-2022-2023.pdf
+2026-02-05 16:22:33,310 - OCR_Module - INFO - Page 1 of Enrollment-in-NCC-2022-2023.pdf appears scanned. Using OCR...
+2026-02-05 16:22:35,389 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:35,389 - Indexer_Module - INFO - Added 1 documents to index. Total: 39
+2026-02-05 16:22:35,420 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:35,420 - Indexer_Module - INFO - Added 1 documents to index. Total: 40
+2026-02-05 16:22:35,420 - DocumentProcessor - INFO - Processing file: Even-sem-Registration-Notice.pdf
+2026-02-05 16:22:35,420 - OCR_Module - INFO - Processing file: Even-sem-Registration-Notice.pdf
+2026-02-05 16:22:35,421 - OCR_Module - INFO - Page 1 of Even-sem-Registration-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:22:38,800 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:38,800 - Indexer_Module - INFO - Added 1 documents to index. Total: 41
+2026-02-05 16:22:38,831 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:38,831 - Indexer_Module - INFO - Added 1 documents to index. Total: 42
+2026-02-05 16:22:38,831 - DocumentProcessor - INFO - Processing file: Fire-Safety-Certificate-23-25.pdf
+2026-02-05 16:22:38,831 - OCR_Module - INFO - Processing file: Fire-Safety-Certificate-23-25.pdf
+2026-02-05 16:22:38,872 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:38,872 - Indexer_Module - INFO - Added 1 documents to index. Total: 43
+2026-02-05 16:22:38,904 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:38,904 - Indexer_Module - INFO - Added 1 documents to index. Total: 44
+2026-02-05 16:22:38,906 - DocumentProcessor - INFO - Processing file: Form-Fill-up-for-End-Semester-Examinations-Notice.pdf
+2026-02-05 16:22:38,906 - OCR_Module - INFO - Processing file: Form-Fill-up-for-End-Semester-Examinations-Notice.pdf
+2026-02-05 16:22:38,906 - OCR_Module - INFO - Page 1 of Form-Fill-up-for-End-Semester-Examinations-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:22:41,740 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:41,740 - Indexer_Module - INFO - Added 1 documents to index. Total: 45
+2026-02-05 16:22:41,773 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:41,773 - Indexer_Module - INFO - Added 1 documents to index. Total: 46
+2026-02-05 16:22:41,773 - DocumentProcessor - INFO - Processing file: GIET-UNIVERSITY-Notification-with-Act-2-351.pdf
+2026-02-05 16:22:41,773 - OCR_Module - INFO - Processing file: GIET-UNIVERSITY-Notification-with-Act-2-351.pdf
+2026-02-05 16:22:41,774 - OCR_Module - INFO - Page 1 of GIET-UNIVERSITY-Notification-with-Act-2-351.pdf appears scanned. Using OCR...
+2026-02-05 16:22:43,671 - OCR_Module - INFO - Page 2 of GIET-UNIVERSITY-Notification-with-Act-2-351.pdf appears scanned. Using OCR...
+2026-02-05 16:22:47,266 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:47,266 - Indexer_Module - INFO - Added 1 documents to index. Total: 47
+2026-02-05 16:22:47,315 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:47,315 - Indexer_Module - INFO - Added 1 documents to index. Total: 48
+2026-02-05 16:22:47,315 - DocumentProcessor - INFO - Processing file: IP-Policy-GIET-University-Ver-01.pdf
+2026-02-05 16:22:47,315 - OCR_Module - INFO - Processing file: IP-Policy-GIET-University-Ver-01.pdf
+2026-02-05 16:22:47,519 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:47,519 - Indexer_Module - INFO - Added 1 documents to index. Total: 49
+2026-02-05 16:22:47,559 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:47,559 - Indexer_Module - INFO - Added 1 documents to index. Total: 50
+2026-02-05 16:22:47,559 - DocumentProcessor - INFO - Processing file: M.-Sc.-Ag-M.-Sc.-Hort.-Form-Fill-up-Notice-for-Semester-End-Examinations.pdf
+2026-02-05 16:22:47,559 - OCR_Module - INFO - Processing file: M.-Sc.-Ag-M.-Sc.-Hort.-Form-Fill-up-Notice-for-Semester-End-Examinations.pdf
+2026-02-05 16:22:47,560 - OCR_Module - INFO - Page 1 of M.-Sc.-Ag-M.-Sc.-Hort.-Form-Fill-up-Notice-for-Semester-End-Examinations.pdf appears scanned. Using OCR...
+2026-02-05 16:22:50,112 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:50,112 - Indexer_Module - INFO - Added 1 documents to index. Total: 51
+2026-02-05 16:22:50,144 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:50,144 - Indexer_Module - INFO - Added 1 documents to index. Total: 52
+2026-02-05 16:22:50,144 - DocumentProcessor - INFO - Processing file: M.-Sc.-Ag.-M.-Sc.-Hort.-Batch-2024-2026-4th-Semester-Registration-Notice.pdf
+2026-02-05 16:22:50,144 - OCR_Module - INFO - Processing file: M.-Sc.-Ag.-M.-Sc.-Hort.-Batch-2024-2026-4th-Semester-Registration-Notice.pdf
+2026-02-05 16:22:50,145 - OCR_Module - INFO - Page 1 of M.-Sc.-Ag.-M.-Sc.-Hort.-Batch-2024-2026-4th-Semester-Registration-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:22:52,654 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:52,654 - Indexer_Module - INFO - Added 1 documents to index. Total: 53
+2026-02-05 16:22:52,691 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:52,691 - Indexer_Module - INFO - Added 1 documents to index. Total: 54
+2026-02-05 16:22:52,691 - DocumentProcessor - INFO - Processing file: M.Sc-1st-Semester-Rescheduled-Notice.pdf
+2026-02-05 16:22:52,691 - OCR_Module - INFO - Processing file: M.Sc-1st-Semester-Rescheduled-Notice.pdf
+2026-02-05 16:22:52,691 - OCR_Module - INFO - Page 1 of M.Sc-1st-Semester-Rescheduled-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:22:55,092 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:55,092 - Indexer_Module - INFO - Added 1 documents to index. Total: 55
+2026-02-05 16:22:55,127 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:55,127 - Indexer_Module - INFO - Added 1 documents to index. Total: 56
+2026-02-05 16:22:55,127 - DocumentProcessor - INFO - Processing file: MANDATORY-DISCLOSURES-.pdf
+2026-02-05 16:22:55,127 - OCR_Module - INFO - Processing file: MANDATORY-DISCLOSURES-.pdf
+2026-02-05 16:22:55,364 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:55,364 - Indexer_Module - INFO - Added 1 documents to index. Total: 57
+2026-02-05 16:22:55,403 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:55,403 - Indexer_Module - INFO - Added 1 documents to index. Total: 58
+2026-02-05 16:22:55,403 - DocumentProcessor - INFO - Processing file: Mandatory-Disclosures-GIETU.pdf
+2026-02-05 16:22:55,403 - OCR_Module - INFO - Processing file: Mandatory-Disclosures-GIETU.pdf
+2026-02-05 16:22:55,832 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:55,832 - Indexer_Module - INFO - Added 1 documents to index. Total: 59
+2026-02-05 16:22:55,889 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:55,889 - Indexer_Module - INFO - Added 1 documents to index. Total: 60
+2026-02-05 16:22:55,889 - DocumentProcessor - INFO - Processing file: MANDATORY-DISCLOSURES.pdf
+2026-02-05 16:22:55,890 - OCR_Module - INFO - Processing file: MANDATORY-DISCLOSURES.pdf
+2026-02-05 16:22:56,127 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:56,127 - Indexer_Module - INFO - Added 1 documents to index. Total: 61
+2026-02-05 16:22:56,175 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:56,175 - Indexer_Module - INFO - Added 1 documents to index. Total: 62
+2026-02-05 16:22:56,176 - DocumentProcessor - INFO - Processing file: MoU-27.5.22.pdf
+2026-02-05 16:22:56,176 - OCR_Module - INFO - Processing file: MoU-27.5.22.pdf
+2026-02-05 16:22:56,233 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:56,233 - Indexer_Module - INFO - Added 1 documents to index. Total: 63
+2026-02-05 16:22:56,268 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:56,268 - Indexer_Module - INFO - Added 1 documents to index. Total: 64
+2026-02-05 16:22:56,269 - DocumentProcessor - INFO - Processing file: NOTICE-FOR-ADAMISSTON-INTO-THE-Ph.D.-PROGRAME-2025-26-Winter.pdf
+2026-02-05 16:22:56,269 - OCR_Module - INFO - Processing file: NOTICE-FOR-ADAMISSTON-INTO-THE-Ph.D.-PROGRAME-2025-26-Winter.pdf
+2026-02-05 16:22:56,422 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:56,423 - Indexer_Module - INFO - Added 1 documents to index. Total: 65
+2026-02-05 16:22:56,457 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:56,457 - Indexer_Module - INFO - Added 1 documents to index. Total: 66
+2026-02-05 16:22:56,458 - DocumentProcessor - INFO - Processing file: Ph.-D.-Synopsis-submission-fee.pdf
+2026-02-05 16:22:56,458 - OCR_Module - INFO - Processing file: Ph.-D.-Synopsis-submission-fee.pdf
+2026-02-05 16:22:56,458 - OCR_Module - INFO - Page 1 of Ph.-D.-Synopsis-submission-fee.pdf appears scanned. Using OCR...
+2026-02-05 16:22:58,806 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:58,806 - Indexer_Module - INFO - Added 1 documents to index. Total: 67
+2026-02-05 16:22:58,838 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:22:58,838 - Indexer_Module - INFO - Added 1 documents to index. Total: 68
+2026-02-05 16:22:58,838 - DocumentProcessor - INFO - Processing file: Rechecking-Notice.pdf
+2026-02-05 16:22:58,838 - OCR_Module - INFO - Processing file: Rechecking-Notice.pdf
+2026-02-05 16:22:58,839 - OCR_Module - INFO - Page 1 of Rechecking-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:23:01,787 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:01,787 - Indexer_Module - INFO - Added 1 documents to index. Total: 69
+2026-02-05 16:23:01,819 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:01,820 - Indexer_Module - INFO - Added 1 documents to index. Total: 70
+2026-02-05 16:23:01,820 - DocumentProcessor - INFO - Processing file: Reschedule-of-Exam.pdf
+2026-02-05 16:23:01,820 - OCR_Module - INFO - Processing file: Reschedule-of-Exam.pdf
+2026-02-05 16:23:01,820 - OCR_Module - INFO - Page 1 of Reschedule-of-Exam.pdf appears scanned. Using OCR...
+2026-02-05 16:23:04,000 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:04,000 - Indexer_Module - INFO - Added 1 documents to index. Total: 71
+2026-02-05 16:23:04,034 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:04,034 - Indexer_Module - INFO - Added 1 documents to index. Total: 72
+2026-02-05 16:23:04,034 - DocumentProcessor - INFO - Processing file: Student-Name-Correction-Notice.-02.02.2026.pdf
+2026-02-05 16:23:04,034 - OCR_Module - INFO - Processing file: Student-Name-Correction-Notice.-02.02.2026.pdf
+2026-02-05 16:23:04,035 - OCR_Module - INFO - Page 1 of Student-Name-Correction-Notice.-02.02.2026.pdf appears scanned. Using OCR...
+2026-02-05 16:23:07,592 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:07,592 - Indexer_Module - INFO - Added 1 documents to index. Total: 73
+2026-02-05 16:23:07,629 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:07,629 - Indexer_Module - INFO - Added 1 documents to index. Total: 74
+2026-02-05 16:23:07,630 - DocumentProcessor - INFO - Processing file: Student%20Pursuing%20Higher%20Study.pdf
+2026-02-05 16:23:07,630 - OCR_Module - INFO - Processing file: Student%20Pursuing%20Higher%20Study.pdf
+2026-02-05 16:23:07,631 - OCR_Module - INFO - Page 1 of Student%20Pursuing%20Higher%20Study.pdf appears scanned. Using OCR...
+2026-02-05 16:23:11,946 - OCR_Module - INFO - Page 2 of Student%20Pursuing%20Higher%20Study.pdf appears scanned. Using OCR...
+2026-02-05 16:23:15,507 - OCR_Module - INFO - Page 3 of Student%20Pursuing%20Higher%20Study.pdf appears scanned. Using OCR...
+2026-02-05 16:23:20,836 - OCR_Module - INFO - Page 4 of Student%20Pursuing%20Higher%20Study.pdf appears scanned. Using OCR...
+2026-02-05 16:23:27,628 - OCR_Module - INFO - Page 5 of Student%20Pursuing%20Higher%20Study.pdf appears scanned. Using OCR...
+2026-02-05 16:23:32,114 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:32,115 - Indexer_Module - INFO - Added 1 documents to index. Total: 75
+2026-02-05 16:23:32,149 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:32,149 - Indexer_Module - INFO - Added 1 documents to index. Total: 76
+2026-02-05 16:23:32,149 - DocumentProcessor - INFO - Processing file: Subject-Registration-for-the-Supplementary-Examinations-Notice.pdf
+2026-02-05 16:23:32,150 - OCR_Module - INFO - Processing file: Subject-Registration-for-the-Supplementary-Examinations-Notice.pdf
+2026-02-05 16:23:32,150 - OCR_Module - INFO - Page 1 of Subject-Registration-for-the-Supplementary-Examinations-Notice.pdf appears scanned. Using OCR...
+2026-02-05 16:23:35,247 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:35,248 - Indexer_Module - INFO - Added 1 documents to index. Total: 77
+2026-02-05 16:23:35,279 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:35,279 - Indexer_Module - INFO - Added 1 documents to index. Total: 78
+2026-02-05 16:23:35,279 - DocumentProcessor - INFO - Processing file: Suspend-of-Classes.pdf
+2026-02-05 16:23:35,279 - OCR_Module - INFO - Processing file: Suspend-of-Classes.pdf
+2026-02-05 16:23:35,280 - OCR_Module - INFO - Page 1 of Suspend-of-Classes.pdf appears scanned. Using OCR...
+2026-02-05 16:23:37,266 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:37,266 - Indexer_Module - INFO - Added 1 documents to index. Total: 79
+2026-02-05 16:23:37,295 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:37,295 - Indexer_Module - INFO - Added 1 documents to index. Total: 80
+2026-02-05 16:23:37,295 - DocumentProcessor - INFO - Processing file: University-Statutes.pdf
+2026-02-05 16:23:37,295 - OCR_Module - INFO - Processing file: University-Statutes.pdf
+2026-02-05 16:23:37,306 - OCR_Module - INFO - Page 4 of University-Statutes.pdf appears scanned. Using OCR...
+2026-02-05 16:23:38,455 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:38,455 - Indexer_Module - INFO - Added 1 documents to index. Total: 81
+2026-02-05 16:23:38,541 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 16:23:38,541 - Indexer_Module - INFO - Added 1 documents to index. Total: 82
+2026-02-05 16:23:38,541 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 16:23:38,542 - Indexer_Module - INFO - Loaded index with 82 vectors.
+2026-02-05 16:23:38,542 - Search_Engine - INFO - Ingestion complete. Added 40 files.
+2026-02-05 16:23:38,544 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-05 16:23:55,024 - Search_Engine - INFO - Searching for: Java with filters: None
+2026-02-05 16:43:33,405 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 16:43:33,406 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 16:43:40,636 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 16:43:40,640 - Indexer_Module - INFO - Loaded index with 82 vectors.
+2026-02-05 16:43:47,259 - Search_Engine - INFO - Searching for: java with filters: None
+2026-02-05 17:03:52,735 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 17:03:52,735 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 17:03:56,315 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-05 17:03:56,315 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-05 17:04:02,324 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 17:04:02,326 - Indexer_Module - INFO - Loaded index with 82 vectors.
+2026-02-05 17:04:02,326 - Summarizer - INFO - Initializing bart summarizer...
+2026-02-05 17:04:02,326 - Summarizer - INFO - Loading facebook/bart-large-cnn...
+2026-02-05 17:04:04,714 - Summarizer - ERROR - Failed to load BART: "Unknown task summarization, available tasks are ['any-to-any', 'audio-classification', 'automatic-speech-recognition', 'depth-estimation', 'document-question-answering', 'feature-extraction', 'fill-mask', 'image-classification', 'image-feature-extraction', 'image-segmentation', 'image-text-to-text', 'image-to-image', 'keypoint-matching', 'mask-generation', 'ner', 'object-detection', 'question-answering', 'sentiment-analysis', 'table-question-answering', 'text-classification', 'text-generation', 'text-to-audio', 'text-to-speech', 'token-classification', 'video-classification', 'visual-question-answering', 'vqa', 'zero-shot-audio-classification', 'zero-shot-classification', 'zero-shot-image-classification', 'zero-shot-object-detection', 'translation_XX_to_YY']"
+2026-02-05 17:04:04,714 - Summarizer - INFO - Falling back to extractive summarization
+2026-02-05 17:04:05,000 - Summarizer - INFO - ✓ Extractive summarizer initialized
+2026-02-05 17:04:05,000 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-05 17:04:10,030 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-05 17:04:10,031 - Indexer_Module - INFO - Loaded index with 82 vectors.
+2026-02-05 17:05:53,510 - Scraper - INFO - Starting crawl from 4 seed URL(s)
+2026-02-05 17:05:53,511 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/
+2026-02-05 17:05:55,645 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/news-events/notices/
+2026-02-05 17:05:57,800 - Scraper - INFO - Crawling [0/2]: https://www.giet.edu/examinations/notices/
+2026-02-05 17:05:58,227 - Scraper - INFO - Downloading: Semester End Examinations Form Fill Up N... (https://www.giet.edu/wp-content/uploads/2025/11/Semester-End-Examinations-Form-Fill-Up-Notice.pdf)
+2026-02-05 17:05:58,432 - Monitor - INFO - New file detected: data/watch/Semester-End-Examinations-Form-Fill-Up-Notice.pdf
+2026-02-05 17:05:58,792 - Scraper - INFO - ✓ Saved: Semester-End-Examinations-Form-Fill-Up-Notice.pdf
+2026-02-05 17:05:58,792 - Scraper - INFO - Downloaded 1/20 files
+2026-02-05 17:06:00,293 - Scraper - INFO - Downloading: B. Sc. Ag (Batch 2024-2028) Third Semest... (https://www.giet.edu/wp-content/uploads/2025/11/B.-Sc.-Ag-Batch-2024-2028-Third-Semester-Regular-Examinations-November2025.pdf)
+2026-02-05 17:06:00,432 - DocumentProcessor - INFO - Processing file: Semester-End-Examinations-Form-Fill-Up-Notice.pdf
+2026-02-05 17:06:00,433 - OCR_Module - INFO - Processing file: Semester-End-Examinations-Form-Fill-Up-Notice.pdf
+2026-02-05 17:06:00,439 - OCR_Module - INFO - Page 1 of Semester-End-Examinations-Form-Fill-Up-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:06:01,048 - Scraper - INFO - ✓ Saved: B.-Sc.-Ag-Batch-2024-2028-Third-Semester-Regular-Examinations-November2025.pdf
+2026-02-05 17:06:01,048 - Scraper - INFO - Downloaded 2/20 files
+2026-02-05 17:06:02,548 - Scraper - INFO - Downloading: Rescheduled of B. Tech. (Batch 2022-2026... (https://www.giet.edu/wp-content/uploads/2025/11/Rescheduled-of-B.-Tech.-Batch-2022-2026-1st-Semester-Supplementary-Examinations-Scheduled-on-10.11.2025.pdf)
+2026-02-05 17:06:02,975 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:02,975 - Indexer_Module - INFO - Added 1 documents to index. Total: 83
+2026-02-05 17:06:03,007 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:03,007 - Indexer_Module - INFO - Added 1 documents to index. Total: 84
+2026-02-05 17:06:03,007 - Monitor - INFO - Successfully processed and indexed: Semester-End-Examinations-Form-Fill-Up-Notice.pdf
+2026-02-05 17:06:03,007 - Monitor - INFO - New file detected: data/watch/B.-Sc.-Ag-Batch-2024-2028-Third-Semester-Regular-Examinations-November2025.pdf
+2026-02-05 17:06:03,247 - Scraper - INFO - ✓ Saved: Rescheduled-of-B.-Tech.-Batch-2022-2026-1st-Semester-Supplementary-Examinations-Scheduled-on-10.11.2025.pdf
+2026-02-05 17:06:03,247 - Scraper - INFO - Downloaded 3/20 files
+2026-02-05 17:06:04,748 - Scraper - INFO - Downloading: Rescheduled of B. Tech. 7th Semester Exa... (https://www.giet.edu/wp-content/uploads/2025/11/Rescheduled-of-B.-Tech.-7th-Semester-Examinations-Scheduled-on-08.11.2025.pdf)
+2026-02-05 17:06:05,008 - DocumentProcessor - INFO - Processing file: B.-Sc.-Ag-Batch-2024-2028-Third-Semester-Regular-Examinations-November2025.pdf
+2026-02-05 17:06:05,008 - OCR_Module - INFO - Processing file: B.-Sc.-Ag-Batch-2024-2028-Third-Semester-Regular-Examinations-November2025.pdf
+2026-02-05 17:06:05,010 - OCR_Module - INFO - Page 1 of B.-Sc.-Ag-Batch-2024-2028-Third-Semester-Regular-Examinations-November2025.pdf appears scanned. Using OCR...
+2026-02-05 17:06:05,553 - Scraper - INFO - ✓ Saved: Rescheduled-of-B.-Tech.-7th-Semester-Examinations-Scheduled-on-08.11.2025.pdf
+2026-02-05 17:06:05,553 - Scraper - INFO - Downloaded 4/20 files
+2026-02-05 17:06:07,053 - Scraper - INFO - Downloading: Migration Certificate Submission Notice... (https://www.giet.edu/wp-content/uploads/2025/11/Migration-Certificate-Submission-Notice.pdf)
+2026-02-05 17:06:07,089 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:07,089 - Indexer_Module - INFO - Added 1 documents to index. Total: 85
+2026-02-05 17:06:07,120 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:07,121 - Indexer_Module - INFO - Added 1 documents to index. Total: 86
+2026-02-05 17:06:07,121 - Monitor - INFO - Successfully processed and indexed: B.-Sc.-Ag-Batch-2024-2028-Third-Semester-Regular-Examinations-November2025.pdf
+2026-02-05 17:06:07,121 - Monitor - INFO - New file detected: data/watch/Rescheduled-of-B.-Tech.-Batch-2022-2026-1st-Semester-Supplementary-Examinations-Scheduled-on-10.11.2025.pdf
+2026-02-05 17:06:08,057 - Scraper - INFO - ✓ Saved: Migration-Certificate-Submission-Notice.pdf
+2026-02-05 17:06:08,058 - Scraper - INFO - Downloaded 5/20 files
+2026-02-05 17:06:09,121 - DocumentProcessor - INFO - Processing file: Rescheduled-of-B.-Tech.-Batch-2022-2026-1st-Semester-Supplementary-Examinations-Scheduled-on-10.11.2025.pdf
+2026-02-05 17:06:09,122 - OCR_Module - INFO - Processing file: Rescheduled-of-B.-Tech.-Batch-2022-2026-1st-Semester-Supplementary-Examinations-Scheduled-on-10.11.2025.pdf
+2026-02-05 17:06:09,124 - OCR_Module - INFO - Page 1 of Rescheduled-of-B.-Tech.-Batch-2022-2026-1st-Semester-Supplementary-Examinations-Scheduled-on-10.11.2025.pdf appears scanned. Using OCR...
+2026-02-05 17:06:09,558 - Scraper - INFO - Downloading: Semester End Examination Form Fill up No... (https://www.giet.edu/wp-content/uploads/2025/11/Semester-End-Examination-Form-Fill-up-Notice.pdf)
+2026-02-05 17:06:10,360 - Scraper - INFO - ✓ Saved: Semester-End-Examination-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:10,360 - Scraper - INFO - Downloaded 6/20 files
+2026-02-05 17:06:11,162 - Search_Engine - INFO - Searching for: Holiday with filters: None
+2026-02-05 17:06:11,409 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:11,409 - Indexer_Module - INFO - Added 1 documents to index. Total: 87
+2026-02-05 17:06:11,443 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:11,443 - Indexer_Module - INFO - Added 1 documents to index. Total: 88
+2026-02-05 17:06:11,443 - Monitor - INFO - Successfully processed and indexed: Rescheduled-of-B.-Tech.-Batch-2022-2026-1st-Semester-Supplementary-Examinations-Scheduled-on-10.11.2025.pdf
+2026-02-05 17:06:11,444 - Monitor - INFO - New file detected: data/watch/Rescheduled-of-B.-Tech.-7th-Semester-Examinations-Scheduled-on-08.11.2025.pdf
+2026-02-05 17:06:11,860 - Scraper - INFO - Downloading: Ph.D. Registration for 1st Semester Supp... (https://www.giet.edu/wp-content/uploads/2025/10/Ph.D.-Registration-for-1st-Semester-Supplementary-Examinations-Notice.pdf)
+2026-02-05 17:06:12,819 - Scraper - INFO - ✓ Saved: Ph.D.-Registration-for-1st-Semester-Supplementary-Examinations-Notice.pdf
+2026-02-05 17:06:12,820 - Scraper - INFO - Downloaded 7/20 files
+2026-02-05 17:06:13,445 - DocumentProcessor - INFO - Processing file: Rescheduled-of-B.-Tech.-7th-Semester-Examinations-Scheduled-on-08.11.2025.pdf
+2026-02-05 17:06:13,445 - OCR_Module - INFO - Processing file: Rescheduled-of-B.-Tech.-7th-Semester-Examinations-Scheduled-on-08.11.2025.pdf
+2026-02-05 17:06:13,446 - OCR_Module - INFO - Page 1 of Rescheduled-of-B.-Tech.-7th-Semester-Examinations-Scheduled-on-08.11.2025.pdf appears scanned. Using OCR...
+2026-02-05 17:06:14,320 - Scraper - INFO - Downloading: Ph.D. Summer 2025 Batch Registration and... (https://www.giet.edu/wp-content/uploads/2025/10/Ph.D.-Summer-2025-Batch-Registration-and-Form-Fill-up-for-1st-Semester-Regular-Examinations-Notice.pdf)
+2026-02-05 17:06:15,161 - Scraper - INFO - ✓ Saved: Ph.D.-Summer-2025-Batch-Registration-and-Form-Fill-up-for-1st-Semester-Regular-Examinations-Notice.pdf
+2026-02-05 17:06:15,161 - Scraper - INFO - Downloaded 8/20 files
+2026-02-05 17:06:15,742 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:15,742 - Indexer_Module - INFO - Added 1 documents to index. Total: 89
+2026-02-05 17:06:15,776 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:15,776 - Indexer_Module - INFO - Added 1 documents to index. Total: 90
+2026-02-05 17:06:15,777 - Monitor - INFO - Successfully processed and indexed: Rescheduled-of-B.-Tech.-7th-Semester-Examinations-Scheduled-on-08.11.2025.pdf
+2026-02-05 17:06:15,777 - Monitor - INFO - New file detected: data/watch/Migration-Certificate-Submission-Notice.pdf
+2026-02-05 17:06:16,661 - Scraper - INFO - Downloading: Form Fill Notice for the Semester End Ex... (https://www.giet.edu/wp-content/uploads/2025/10/Form-Fill-Notice-for-the-Semester-End-Examinations.pdf)
+2026-02-05 17:06:17,565 - Scraper - INFO - ✓ Saved: Form-Fill-Notice-for-the-Semester-End-Examinations.pdf
+2026-02-05 17:06:17,565 - Scraper - INFO - Downloaded 9/20 files
+2026-02-05 17:06:17,777 - DocumentProcessor - INFO - Processing file: Migration-Certificate-Submission-Notice.pdf
+2026-02-05 17:06:17,777 - OCR_Module - INFO - Processing file: Migration-Certificate-Submission-Notice.pdf
+2026-02-05 17:06:17,816 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:17,816 - Indexer_Module - INFO - Added 1 documents to index. Total: 91
+2026-02-05 17:06:17,852 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:17,852 - Indexer_Module - INFO - Added 1 documents to index. Total: 92
+2026-02-05 17:06:17,852 - Monitor - INFO - Successfully processed and indexed: Migration-Certificate-Submission-Notice.pdf
+2026-02-05 17:06:17,852 - Monitor - INFO - New file detected: data/watch/Semester-End-Examination-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:19,066 - Scraper - INFO - Downloading: Subject Registration for the Supplementa... (https://www.giet.edu/wp-content/uploads/2025/10/Subject-Registration-for-the-Supplementary-Examinations-Notice_.pdf)
+2026-02-05 17:06:19,698 - Scraper - INFO - ✓ Saved: Subject-Registration-for-the-Supplementary-Examinations-Notice_.pdf
+2026-02-05 17:06:19,698 - Scraper - INFO - Downloaded 10/20 files
+2026-02-05 17:06:19,852 - DocumentProcessor - INFO - Processing file: Semester-End-Examination-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:19,853 - OCR_Module - INFO - Processing file: Semester-End-Examination-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:19,855 - OCR_Module - INFO - Page 1 of Semester-End-Examination-Form-Fill-up-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:06:21,198 - Scraper - INFO - Downloading: Subject Registration for the Supplementa... (https://www.giet.edu/wp-content/uploads/2025/10/Subject-Registration-for-the-Supplementary-Examinations-Notice.pdf)
+2026-02-05 17:06:21,945 - Scraper - INFO - ✓ Saved: Subject-Registration-for-the-Supplementary-Examinations-Notice_1770291381.pdf
+2026-02-05 17:06:21,945 - Scraper - INFO - Downloaded 11/20 files
+2026-02-05 17:06:22,588 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:22,589 - Indexer_Module - INFO - Added 1 documents to index. Total: 93
+2026-02-05 17:06:22,622 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:22,622 - Indexer_Module - INFO - Added 1 documents to index. Total: 94
+2026-02-05 17:06:22,622 - Monitor - INFO - Successfully processed and indexed: Semester-End-Examination-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:22,623 - Monitor - INFO - New file detected: data/watch/Ph.D.-Registration-for-1st-Semester-Supplementary-Examinations-Notice.pdf
+2026-02-05 17:06:23,446 - Scraper - INFO - Downloading: M. Tech (Batch 2025-2027) _ M. Sc. Ag. (... (https://www.giet.edu/wp-content/uploads/2025/10/M.-Tech-Batch-2025-2027-_-M.-Sc.-Ag.-Batch-2025-2027-1st-Semester-Registration-Notice.pdf)
+2026-02-05 17:06:24,623 - DocumentProcessor - INFO - Processing file: Ph.D.-Registration-for-1st-Semester-Supplementary-Examinations-Notice.pdf
+2026-02-05 17:06:24,623 - OCR_Module - INFO - Processing file: Ph.D.-Registration-for-1st-Semester-Supplementary-Examinations-Notice.pdf
+2026-02-05 17:06:24,625 - OCR_Module - INFO - Page 1 of Ph.D.-Registration-for-1st-Semester-Supplementary-Examinations-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:06:25,624 - Scraper - INFO - ✓ Saved: M.-Tech-Batch-2025-2027-_-M.-Sc.-Ag.-Batch-2025-2027-1st-Semester-Registration-Notice.pdf
+2026-02-05 17:06:25,624 - Scraper - INFO - Downloaded 12/20 files
+2026-02-05 17:06:26,917 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:26,917 - Indexer_Module - INFO - Added 1 documents to index. Total: 95
+2026-02-05 17:06:26,954 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:26,954 - Indexer_Module - INFO - Added 1 documents to index. Total: 96
+2026-02-05 17:06:26,954 - Monitor - INFO - Successfully processed and indexed: Ph.D.-Registration-for-1st-Semester-Supplementary-Examinations-Notice.pdf
+2026-02-05 17:06:26,955 - Monitor - INFO - New file detected: data/watch/Ph.D.-Summer-2025-Batch-Registration-and-Form-Fill-up-for-1st-Semester-Regular-Examinations-Notice.pdf
+2026-02-05 17:06:27,125 - Scraper - INFO - Downloading: CYCLE TEST-I NOTICE (MBA, BBA, MCA,BCA)... (https://www.giet.edu/wp-content/uploads/2025/09/CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf)
+2026-02-05 17:06:27,755 - Scraper - WARNING - Download error (1/3): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-02-05 17:06:28,955 - DocumentProcessor - INFO - Processing file: Ph.D.-Summer-2025-Batch-Registration-and-Form-Fill-up-for-1st-Semester-Regular-Examinations-Notice.pdf
+2026-02-05 17:06:28,955 - OCR_Module - INFO - Processing file: Ph.D.-Summer-2025-Batch-Registration-and-Form-Fill-up-for-1st-Semester-Regular-Examinations-Notice.pdf
+2026-02-05 17:06:28,957 - OCR_Module - INFO - Page 1 of Ph.D.-Summer-2025-Batch-Registration-and-Form-Fill-up-for-1st-Semester-Regular-Examinations-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:06:29,756 - Scraper - INFO - Downloading: CYCLE TEST-I NOTICE (MBA, BBA, MCA,BCA)... (https://www.giet.edu/wp-content/uploads/2025/09/CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf)
+2026-02-05 17:06:31,574 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:31,574 - Indexer_Module - INFO - Added 1 documents to index. Total: 97
+2026-02-05 17:06:31,612 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:31,612 - Indexer_Module - INFO - Added 1 documents to index. Total: 98
+2026-02-05 17:06:31,612 - Monitor - INFO - Successfully processed and indexed: Ph.D.-Summer-2025-Batch-Registration-and-Form-Fill-up-for-1st-Semester-Regular-Examinations-Notice.pdf
+2026-02-05 17:06:31,613 - Monitor - INFO - New file detected: data/watch/Form-Fill-Notice-for-the-Semester-End-Examinations.pdf
+2026-02-05 17:06:33,613 - DocumentProcessor - INFO - Processing file: Form-Fill-Notice-for-the-Semester-End-Examinations.pdf
+2026-02-05 17:06:33,614 - OCR_Module - INFO - Processing file: Form-Fill-Notice-for-the-Semester-End-Examinations.pdf
+2026-02-05 17:06:33,615 - OCR_Module - INFO - Page 1 of Form-Fill-Notice-for-the-Semester-End-Examinations.pdf appears scanned. Using OCR...
+2026-02-05 17:06:34,301 - Scraper - INFO - ✓ Saved: CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf
+2026-02-05 17:06:34,301 - Scraper - INFO - Downloaded 13/20 files
+2026-02-05 17:06:35,802 - Scraper - INFO - Downloading: Ph. D. (Winter – 2024 Batch) 2nd Semeste... (https://www.giet.edu/wp-content/uploads/2025/09/Ph.-D.-Winter-2024-Batch-2nd-Semester-Regular-Examinations-Registration-Form-Fill-up-Notice.pdf)
+2026-02-05 17:06:36,530 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:36,531 - Indexer_Module - INFO - Added 1 documents to index. Total: 99
+2026-02-05 17:06:36,567 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:36,567 - Indexer_Module - INFO - Added 1 documents to index. Total: 100
+2026-02-05 17:06:36,567 - Monitor - INFO - Successfully processed and indexed: Form-Fill-Notice-for-the-Semester-End-Examinations.pdf
+2026-02-05 17:06:36,568 - Monitor - INFO - New file detected: data/watch/Subject-Registration-for-the-Supplementary-Examinations-Notice_.pdf
+2026-02-05 17:06:37,781 - Scraper - INFO - ✓ Saved: Ph.-D.-Winter-2024-Batch-2nd-Semester-Regular-Examinations-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:37,781 - Scraper - INFO - Downloaded 14/20 files
+2026-02-05 17:06:38,568 - DocumentProcessor - INFO - Processing file: Subject-Registration-for-the-Supplementary-Examinations-Notice_.pdf
+2026-02-05 17:06:38,568 - OCR_Module - INFO - Processing file: Subject-Registration-for-the-Supplementary-Examinations-Notice_.pdf
+2026-02-05 17:06:38,569 - OCR_Module - INFO - Page 1 of Subject-Registration-for-the-Supplementary-Examinations-Notice_.pdf appears scanned. Using OCR...
+2026-02-05 17:06:39,282 - Scraper - INFO - Downloading: Ph. D. 2nd Semester Supplementary Examin... (https://www.giet.edu/wp-content/uploads/2025/09/Ph.-D.-2nd-Semester-Supplementary-Examinations-Registration-Notice.pdf)
+2026-02-05 17:06:40,446 - Scraper - INFO - ✓ Saved: Ph.-D.-2nd-Semester-Supplementary-Examinations-Registration-Notice.pdf
+2026-02-05 17:06:40,446 - Scraper - INFO - Downloaded 15/20 files
+2026-02-05 17:06:41,243 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:41,243 - Indexer_Module - INFO - Added 1 documents to index. Total: 101
+2026-02-05 17:06:41,275 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:41,275 - Indexer_Module - INFO - Added 1 documents to index. Total: 102
+2026-02-05 17:06:41,275 - Monitor - INFO - Successfully processed and indexed: Subject-Registration-for-the-Supplementary-Examinations-Notice_.pdf
+2026-02-05 17:06:41,275 - Monitor - INFO - New file detected: data/watch/Subject-Registration-for-the-Supplementary-Examinations-Notice_1770291381.pdf
+2026-02-05 17:06:41,947 - Scraper - INFO - Downloading: B.Tech (2025-2029 Batch) 1st Semester Cy... (https://www.giet.edu/wp-content/uploads/2025/09/B.Tech-2025-2029-Batch-1st-Semester-Cycle-Test-1-Notice.pdf)
+2026-02-05 17:06:43,247 - Scraper - INFO - ✓ Saved: B.Tech-2025-2029-Batch-1st-Semester-Cycle-Test-1-Notice.pdf
+2026-02-05 17:06:43,247 - Scraper - INFO - Downloaded 16/20 files
+2026-02-05 17:06:43,275 - DocumentProcessor - INFO - Processing file: Subject-Registration-for-the-Supplementary-Examinations-Notice_1770291381.pdf
+2026-02-05 17:06:43,275 - OCR_Module - INFO - Processing file: Subject-Registration-for-the-Supplementary-Examinations-Notice_1770291381.pdf
+2026-02-05 17:06:43,276 - OCR_Module - INFO - Page 1 of Subject-Registration-for-the-Supplementary-Examinations-Notice_1770291381.pdf appears scanned. Using OCR...
+2026-02-05 17:06:44,747 - Scraper - INFO - Downloading: Semester End Examinations Registration N... (https://www.giet.edu/wp-content/uploads/2025/08/Semester-End-Examinations-Registration-Notice-1.pdf)
+2026-02-05 17:06:45,925 - Scraper - WARNING - Download error (1/3): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-02-05 17:06:46,632 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:46,632 - Indexer_Module - INFO - Added 1 documents to index. Total: 103
+2026-02-05 17:06:46,667 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:46,667 - Indexer_Module - INFO - Added 1 documents to index. Total: 104
+2026-02-05 17:06:46,667 - Monitor - INFO - Successfully processed and indexed: Subject-Registration-for-the-Supplementary-Examinations-Notice_1770291381.pdf
+2026-02-05 17:06:46,667 - Monitor - INFO - New file detected: data/watch/M.-Tech-Batch-2025-2027-_-M.-Sc.-Ag.-Batch-2025-2027-1st-Semester-Registration-Notice.pdf
+2026-02-05 17:06:47,926 - Scraper - INFO - Downloading: Semester End Examinations Registration N... (https://www.giet.edu/wp-content/uploads/2025/08/Semester-End-Examinations-Registration-Notice-1.pdf)
+2026-02-05 17:06:48,667 - DocumentProcessor - INFO - Processing file: M.-Tech-Batch-2025-2027-_-M.-Sc.-Ag.-Batch-2025-2027-1st-Semester-Registration-Notice.pdf
+2026-02-05 17:06:48,667 - OCR_Module - INFO - Processing file: M.-Tech-Batch-2025-2027-_-M.-Sc.-Ag.-Batch-2025-2027-1st-Semester-Registration-Notice.pdf
+2026-02-05 17:06:48,668 - OCR_Module - INFO - Page 1 of M.-Tech-Batch-2025-2027-_-M.-Sc.-Ag.-Batch-2025-2027-1st-Semester-Registration-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:06:50,923 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:50,924 - Indexer_Module - INFO - Added 1 documents to index. Total: 105
+2026-02-05 17:06:50,959 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:50,959 - Indexer_Module - INFO - Added 1 documents to index. Total: 106
+2026-02-05 17:06:50,960 - Monitor - INFO - Successfully processed and indexed: M.-Tech-Batch-2025-2027-_-M.-Sc.-Ag.-Batch-2025-2027-1st-Semester-Registration-Notice.pdf
+2026-02-05 17:06:50,960 - Monitor - INFO - New file detected: data/watch/CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf
+2026-02-05 17:06:51,214 - Scraper - INFO - ✓ Saved: Semester-End-Examinations-Registration-Notice-1.pdf
+2026-02-05 17:06:51,214 - Scraper - INFO - Downloaded 17/20 files
+2026-02-05 17:06:52,714 - Scraper - INFO - Downloading: Rechecking Notice... (https://www.giet.edu/wp-content/uploads/2025/08/Rechecking-Notice.pdf)
+2026-02-05 17:06:52,960 - DocumentProcessor - INFO - Processing file: CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf
+2026-02-05 17:06:52,961 - OCR_Module - INFO - Processing file: CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf
+2026-02-05 17:06:52,961 - OCR_Module - INFO - Page 1 of CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf appears scanned. Using OCR...
+2026-02-05 17:06:53,305 - Scraper - INFO - ✓ Saved: Rechecking-Notice_1770291413.pdf
+2026-02-05 17:06:53,305 - Scraper - INFO - Downloaded 18/20 files
+2026-02-05 17:06:54,806 - Scraper - INFO - Downloading: B. TECH (2023-2027 BATCH) 5TH SEMESTER C... (https://www.giet.edu/wp-content/uploads/2025/08/B.-TECH-2023-2027-BATCH-5TH-SEMESTER-CYCLE-TEST-I-NOTICE.pdf)
+2026-02-05 17:06:55,170 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:55,170 - Indexer_Module - INFO - Added 1 documents to index. Total: 107
+2026-02-05 17:06:55,244 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:55,244 - Indexer_Module - INFO - Added 1 documents to index. Total: 108
+2026-02-05 17:06:55,244 - Monitor - INFO - Successfully processed and indexed: CYCLE-TEST-I-NOTICE-MBA-BBA-MCABCA.pdf
+2026-02-05 17:06:55,244 - Monitor - INFO - New file detected: data/watch/Ph.-D.-Winter-2024-Batch-2nd-Semester-Regular-Examinations-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:55,324 - Scraper - INFO - ✓ Saved: B.-TECH-2023-2027-BATCH-5TH-SEMESTER-CYCLE-TEST-I-NOTICE.pdf
+2026-02-05 17:06:55,324 - Scraper - INFO - Downloaded 19/20 files
+2026-02-05 17:06:56,825 - Scraper - INFO - Downloading: B.Sc. (Hons) Agriculture, 2nd Semester B... (https://www.giet.edu/wp-content/uploads/2025/08/B.Sc_.-Hons-Agriculture-2nd-Semester-Back-Paper-Registration2.pdf)
+2026-02-05 17:06:57,244 - DocumentProcessor - INFO - Processing file: Ph.-D.-Winter-2024-Batch-2nd-Semester-Regular-Examinations-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:57,244 - OCR_Module - INFO - Processing file: Ph.-D.-Winter-2024-Batch-2nd-Semester-Regular-Examinations-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:57,245 - OCR_Module - INFO - Page 1 of Ph.-D.-Winter-2024-Batch-2nd-Semester-Regular-Examinations-Registration-Form-Fill-up-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:06:57,386 - Scraper - INFO - ✓ Saved: B.Sc_.-Hons-Agriculture-2nd-Semester-Back-Paper-Registration2.pdf
+2026-02-05 17:06:57,386 - Scraper - INFO - Downloaded 20/20 files
+2026-02-05 17:06:59,664 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:59,664 - Indexer_Module - INFO - Added 1 documents to index. Total: 109
+2026-02-05 17:06:59,700 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:06:59,700 - Indexer_Module - INFO - Added 1 documents to index. Total: 110
+2026-02-05 17:06:59,700 - Monitor - INFO - Successfully processed and indexed: Ph.-D.-Winter-2024-Batch-2nd-Semester-Regular-Examinations-Registration-Form-Fill-up-Notice.pdf
+2026-02-05 17:06:59,700 - Monitor - INFO - New file detected: data/watch/Ph.-D.-2nd-Semester-Supplementary-Examinations-Registration-Notice.pdf
+2026-02-05 17:07:00,386 - Scraper - INFO - Crawl complete. Downloaded 20 files, visited 3 pages
+2026-02-05 17:07:01,700 - DocumentProcessor - INFO - Processing file: Ph.-D.-2nd-Semester-Supplementary-Examinations-Registration-Notice.pdf
+2026-02-05 17:07:01,700 - OCR_Module - INFO - Processing file: Ph.-D.-2nd-Semester-Supplementary-Examinations-Registration-Notice.pdf
+2026-02-05 17:07:01,701 - OCR_Module - INFO - Page 1 of Ph.-D.-2nd-Semester-Supplementary-Examinations-Registration-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:07:04,233 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:04,233 - Indexer_Module - INFO - Added 1 documents to index. Total: 111
+2026-02-05 17:07:04,267 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:04,267 - Indexer_Module - INFO - Added 1 documents to index. Total: 112
+2026-02-05 17:07:04,268 - Monitor - INFO - Successfully processed and indexed: Ph.-D.-2nd-Semester-Supplementary-Examinations-Registration-Notice.pdf
+2026-02-05 17:07:04,268 - Monitor - INFO - New file detected: data/watch/B.Tech-2025-2029-Batch-1st-Semester-Cycle-Test-1-Notice.pdf
+2026-02-05 17:07:06,268 - DocumentProcessor - INFO - Processing file: B.Tech-2025-2029-Batch-1st-Semester-Cycle-Test-1-Notice.pdf
+2026-02-05 17:07:06,269 - OCR_Module - INFO - Processing file: B.Tech-2025-2029-Batch-1st-Semester-Cycle-Test-1-Notice.pdf
+2026-02-05 17:07:06,270 - OCR_Module - INFO - Page 1 of B.Tech-2025-2029-Batch-1st-Semester-Cycle-Test-1-Notice.pdf appears scanned. Using OCR...
+2026-02-05 17:07:08,455 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:08,455 - Indexer_Module - INFO - Added 1 documents to index. Total: 113
+2026-02-05 17:07:08,493 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:08,493 - Indexer_Module - INFO - Added 1 documents to index. Total: 114
+2026-02-05 17:07:08,494 - Monitor - INFO - Successfully processed and indexed: B.Tech-2025-2029-Batch-1st-Semester-Cycle-Test-1-Notice.pdf
+2026-02-05 17:07:08,494 - Monitor - INFO - New file detected: data/watch/Semester-End-Examinations-Registration-Notice-1.pdf
+2026-02-05 17:07:10,494 - DocumentProcessor - INFO - Processing file: Semester-End-Examinations-Registration-Notice-1.pdf
+2026-02-05 17:07:10,494 - OCR_Module - INFO - Processing file: Semester-End-Examinations-Registration-Notice-1.pdf
+2026-02-05 17:07:10,495 - OCR_Module - INFO - Page 1 of Semester-End-Examinations-Registration-Notice-1.pdf appears scanned. Using OCR...
+2026-02-05 17:07:13,108 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:13,108 - Indexer_Module - INFO - Added 1 documents to index. Total: 115
+2026-02-05 17:07:13,143 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:13,143 - Indexer_Module - INFO - Added 1 documents to index. Total: 116
+2026-02-05 17:07:13,143 - Monitor - INFO - Successfully processed and indexed: Semester-End-Examinations-Registration-Notice-1.pdf
+2026-02-05 17:07:13,143 - Monitor - INFO - New file detected: data/watch/Rechecking-Notice_1770291413.pdf
+2026-02-05 17:07:15,143 - DocumentProcessor - INFO - Processing file: Rechecking-Notice_1770291413.pdf
+2026-02-05 17:07:15,144 - OCR_Module - INFO - Processing file: Rechecking-Notice_1770291413.pdf
+2026-02-05 17:07:15,145 - OCR_Module - INFO - Page 1 of Rechecking-Notice_1770291413.pdf appears scanned. Using OCR...
+2026-02-05 17:07:17,799 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:17,799 - Indexer_Module - INFO - Added 1 documents to index. Total: 117
+2026-02-05 17:07:17,832 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:17,833 - Indexer_Module - INFO - Added 1 documents to index. Total: 118
+2026-02-05 17:07:17,833 - Monitor - INFO - Successfully processed and indexed: Rechecking-Notice_1770291413.pdf
+2026-02-05 17:07:17,833 - Monitor - INFO - New file detected: data/watch/B.-TECH-2023-2027-BATCH-5TH-SEMESTER-CYCLE-TEST-I-NOTICE.pdf
+2026-02-05 17:07:19,833 - DocumentProcessor - INFO - Processing file: B.-TECH-2023-2027-BATCH-5TH-SEMESTER-CYCLE-TEST-I-NOTICE.pdf
+2026-02-05 17:07:19,834 - OCR_Module - INFO - Processing file: B.-TECH-2023-2027-BATCH-5TH-SEMESTER-CYCLE-TEST-I-NOTICE.pdf
+2026-02-05 17:07:19,836 - OCR_Module - INFO - Page 1 of B.-TECH-2023-2027-BATCH-5TH-SEMESTER-CYCLE-TEST-I-NOTICE.pdf appears scanned. Using OCR...
+2026-02-05 17:07:21,885 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:21,885 - Indexer_Module - INFO - Added 1 documents to index. Total: 119
+2026-02-05 17:07:21,919 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:21,919 - Indexer_Module - INFO - Added 1 documents to index. Total: 120
+2026-02-05 17:07:21,919 - Monitor - INFO - Successfully processed and indexed: B.-TECH-2023-2027-BATCH-5TH-SEMESTER-CYCLE-TEST-I-NOTICE.pdf
+2026-02-05 17:07:21,920 - Monitor - INFO - New file detected: data/watch/B.Sc_.-Hons-Agriculture-2nd-Semester-Back-Paper-Registration2.pdf
+2026-02-05 17:07:23,920 - DocumentProcessor - INFO - Processing file: B.Sc_.-Hons-Agriculture-2nd-Semester-Back-Paper-Registration2.pdf
+2026-02-05 17:07:23,921 - OCR_Module - INFO - Processing file: B.Sc_.-Hons-Agriculture-2nd-Semester-Back-Paper-Registration2.pdf
+2026-02-05 17:07:23,926 - OCR_Module - INFO - Page 1 of B.Sc_.-Hons-Agriculture-2nd-Semester-Back-Paper-Registration2.pdf appears scanned. Using OCR...
+2026-02-05 17:07:26,132 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:26,132 - Indexer_Module - INFO - Added 1 documents to index. Total: 121
+2026-02-05 17:07:26,167 - Indexer_Module - INFO - Index and metadata saved to disk.
+2026-02-05 17:07:26,167 - Indexer_Module - INFO - Added 1 documents to index. Total: 122
+2026-02-05 17:07:26,167 - Monitor - INFO - Successfully processed and indexed: B.Sc_.-Hons-Agriculture-2nd-Semester-Back-Paper-Registration2.pdf
+2026-02-06 10:51:53,747 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 10:51:53,747 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 10:51:58,487 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 10:51:58,488 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 10:52:03,902 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 10:52:03,902 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 10:52:06,129 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 10:52:06,132 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 10:52:06,133 - Summarizer - INFO - Initializing mistral summarizer...
+2026-02-06 10:52:06,133 - Summarizer - ERROR - Failed to initialize Mistral summarizer: name 'MistralSummarizer' is not defined
+2026-02-06 10:52:06,133 - Summarizer - INFO - Falling back to extractive summarization
+2026-02-06 10:52:06,255 - Summarizer - INFO - ✓ Extractive summarizer initialized
+2026-02-06 10:52:06,255 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-06 10:52:06,501 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 10:52:06,503 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 10:52:17,356 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 10:52:17,358 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:12:57,220 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:12:57,220 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:12:58,540 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:12:58,540 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:13:02,543 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:13:02,544 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:13:02,544 - Summarizer - INFO - Initializing mistral summarizer...
+2026-02-06 11:13:02,544 - Summarizer - ERROR - Failed to initialize Mistral summarizer: name 'MistralSummarizer' is not defined
+2026-02-06 11:13:02,544 - Summarizer - INFO - Falling back to extractive summarization
+2026-02-06 11:13:02,601 - Summarizer - INFO - ✓ Extractive summarizer initialized
+2026-02-06 11:13:02,601 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-06 11:13:04,111 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:13:04,112 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:13:04,113 - QA_Engine - INFO - Initialized Mistral Q&A Engine with model: mistral
+2026-02-06 11:13:21,713 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-06 11:13:53,226 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-06 11:13:55,121 - Search_Engine - INFO - Searching for: Giet with filters: None
+2026-02-06 11:13:55,166 - Search_Engine - INFO - Searching for: When is Makar Sankranti holiday with filters: None
+2026-02-06 11:14:21,701 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:14:21,702 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:14:25,217 - QA_Engine - ERROR - Q&A generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-06 11:14:27,813 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:14:27,815 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:14:27,815 - QA_Engine - INFO - Initialized Mistral Q&A Engine with model: mistral
+2026-02-06 11:14:39,178 - Search_Engine - INFO - Searching for: When is Exams with filters: None
+2026-02-06 11:15:09,402 - QA_Engine - ERROR - Q&A generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-06 11:25:31,850 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:25:31,850 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:25:32,637 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:25:32,637 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:25:37,044 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:25:37,049 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:25:37,049 - Summarizer - INFO - Initializing mistral summarizer...
+2026-02-06 11:25:37,049 - Summarizer - ERROR - Failed to initialize Mistral summarizer: name 'MistralSummarizer' is not defined
+2026-02-06 11:25:37,049 - Summarizer - INFO - Falling back to extractive summarization
+2026-02-06 11:25:37,114 - Summarizer - INFO - ✓ Extractive summarizer initialized
+2026-02-06 11:25:37,114 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-06 11:25:38,050 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:25:38,051 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:25:38,052 - QA_Engine - INFO - Initialized Mistral Q&A Engine with model: mistral
+2026-02-06 11:26:02,916 - Search_Engine - INFO - Searching for: When is our holiday with filters: None
+2026-02-06 11:26:32,970 - QA_Engine - ERROR - Q&A generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-02-06 11:30:21,502 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:30:21,502 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:30:22,958 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:30:22,959 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:30:26,651 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:30:26,652 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:30:26,652 - Summarizer - INFO - Initializing mistral summarizer...
+2026-02-06 11:30:26,652 - Summarizer - ERROR - Failed to initialize Mistral summarizer: name 'MistralSummarizer' is not defined
+2026-02-06 11:30:26,652 - Summarizer - INFO - Falling back to extractive summarization
+2026-02-06 11:30:26,717 - Summarizer - INFO - ✓ Extractive summarizer initialized
+2026-02-06 11:30:26,717 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-06 11:30:28,243 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:30:28,244 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:30:28,244 - QA_Engine - INFO - Initialized Mistral Q&A Engine with model: mistral
+2026-02-06 11:30:47,937 - Search_Engine - INFO - Searching for: When is our holiday with filters: None
+2026-02-06 11:35:43,334 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:35:43,334 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:35:44,269 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:35:44,269 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:35:49,025 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:35:49,030 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:35:49,030 - Summarizer - INFO - Initializing mistral summarizer...
+2026-02-06 11:35:49,030 - Summarizer - ERROR - Failed to initialize Mistral summarizer: name 'MistralSummarizer' is not defined
+2026-02-06 11:35:49,030 - Summarizer - INFO - Falling back to extractive summarization
+2026-02-06 11:35:49,091 - Summarizer - INFO - ✓ Extractive summarizer initialized
+2026-02-06 11:35:49,091 - Monitor - INFO - Starting Watchdog on: data/watch
+2026-02-06 11:35:49,825 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:35:49,827 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:35:49,828 - QA_Engine - INFO - Initialized Mistral Q&A Engine with model: mistral
+2026-02-06 11:37:50,065 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:37:50,068 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:37:55,662 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:37:55,664 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:37:55,665 - QA_Engine - INFO - Initialized Mistral Q&A Engine with model: mistral
+2026-02-06 11:47:22,855 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:47:22,860 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:47:22,879 - OCR_Module - INFO - Initializing OCR Engine (Tesseract + PyMuPDF)...
+2026-02-06 11:47:22,880 - Embeddings_Module - INFO - Loading embedding model: all-MiniLM-L6-v2
+2026-02-06 11:47:31,580 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:47:31,581 - Indexer_Module - INFO - Loaded index with 122 vectors.
+2026-02-06 11:47:31,582 - QA_Engine - INFO - Initialized Mistral Q&A Engine with model: mistral
+2026-02-06 11:47:31,740 - Indexer_Module - INFO - Loading existing index and metadata...
+2026-02-06 11:47:31,741 - Indexer_Module - INFO - Loaded index with 122 vectors.
