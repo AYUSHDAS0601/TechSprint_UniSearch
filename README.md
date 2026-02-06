@@ -1,88 +1,205 @@
-# Digital Archaeology 🏛️
-**Semantic Search Engine for University Notices**
+# Digital Archaeology - MERN Stack
 
-A hackathon-ready prototype built for Arch Linux + KDE Plasma. This tool ingests scanned PDFs/Images of university notices (exam schedules, scholarships, etc.), OCRs them using Tesseract, and provides a semantic search interface using Sentence Transformers and FAISS.
+🏛️ **AI-Powered Semantic Search Engine with Dark Cyberpunk Theme**
 
-## 🚀 Features
-- **Offline Capable**: Runs locally without internet (after setup).
-- **Smart Search**: Understands "Java Lab Exam" vs "Java Course Syllabus".
-- **Arch Native**: Optimized for `pacman` dependencies (`tesseract`, `poppler`).
-- **Fast**: Uses FAISS CPU for sub-second vector search.
+## Overview
 
-## 🛠️ System Requirements
-- **OS**: Arch Linux
-- **Python**: 3.12+
-- **RAM**: 4GB minimum (8GB recommended)
-- **Disk**: ~1GB (for ML models and dependencies)
+Digital Archaeology is a full-stack MERN application that provides semantic search capabilities for documents using AI-powered embeddings and natural language processing. Features include:
 
-## 📦 Installation
-Total setup time: < 10 minutes.
+- 🔍 **Semantic Search** - Find documents using natural language queries
+- 💬 **AI Q&A** - Ask questions and get answers powered by Mistral AI
+- 📊 **Dashboard** - Monitor system statistics and activity logs
+- 🕸️ **Web Crawler** - Automatically download notices from university websites
+- 🎨 **Dark Cyberpunk Theme** - Stunning neon-accented UI with glassmorphism effects
 
-1. **Clone/Navigate to folder**:
-   ```bash
-   cd digital-archaeology
-   ```
+## Tech Stack
 
-2. **Run Setup Script**:
-   This installs system dependencies (`tesseract`, `poppler`) and Python libs.
-   ```bash
-   chmod +x setup_arch.sh
-   ./setup_arch.sh
-   ```
-   *Note: Requires `sudo` password for `pacman`.*
+- **Frontend**: React 18 + Vite
+- **Backend**: Express.js (Node.js)
+- **AI/ML**: Python (sentence-transformers, FAISS, Mistral via Ollama)
+- **Database**: MongoDB (optional for development)
+- **Styling**: Custom CSS with cyberpunk theme
 
-## 🏃 Usage
+## Prerequisites
 
-1. **Start the App**:
-   ```bash
-   ./run.sh
-   ```
-   The browser should open to `http://localhost:8501`.
+- Node.js v18+ and npm
+- Python 3.10+
+- Tesseract OCR
+- Ollama with Mistral model (for Q&A features)
+- MongoDB (optional)
 
-2. **Ingest Data**:
-   - Go to the sidebar.
-   - Click **"Browse files"** to upload PDFs or Images.
-   - Click **"Process & Index Files"**.
-   - Watch the progress bar as it extracts text and builds vectors.
+## Installation
 
-3. **Search**:
-   - Type queries like:
-     - *"When is the bus to the hostel?"*
-     - *"Scholarship criteria for OBC students"*
-     - *"Data Structures exam date"*
+### 1. Install System Dependencies
 
-## 🧪 Testing
-### Sample Queries (Mock Data)
-Create a few dummy PDFs or images regarding:
-- **Bus Schedule.pdf**: "Bus 5 leaves Campus at 5 PM for Hostel A."
-- **Scholarship.img**: "OBC Scholarship 2024: Income < 2 Lakhs required."
-- **Exam Notice.pdf**: "Final Exam: CS101 Java Lab on Oct 15th, 2024."
+```bash
+# Arch Linux
+sudo pacman -S nodejs npm python tesseract
 
-**Query** -> **Expected Result**
-- "hostel bus timing" -> **Bus Schedule.pdf**
-- "income limit for aid" -> **Scholarship.img**
-- "CS101 practicals" -> **Exam Notice.pdf**
+# Install Ollama and Mistral
+curl https://ollama.ai/install.sh | sh
+ollama pull mistral
+```
 
-## 🔧 Troubleshooting on Arch
-**Issue**: `tesseract: command not found`
-**Fix**: Ensure base OCR is installed: `sudo pacman -S tesseract tesseract-data-eng`
+### 2. Set Up Python Environment
 
-**Issue**: `streamlit: command not found`
-**Fix**: Ensure you are running with `./run.sh` which handles the virtual environment activation.
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
-**Issue**: `Wayland/Display` errors in `app.py`
-**Fix**: Streamlit runs in the browser, so it works seamlessly on KDE Plasma (Wayland or X11).
+### 3. Install Node.js Dependencies
 
-## 📂 Project Structure
+The startup script will handle this automatically, or run manually:
+
+```bash
+# Backend
+cd backend
+npm install
+
+# Frontend
+cd ../frontend
+npm install
+```
+
+## Running the Application
+
+### Quick Start
+
+```bash
+./start.sh
+```
+
+This will:
+1. Check for dependencies
+2. Install npm packages if needed
+3. Start backend server on port 5000
+4. Start frontend dev server on port 3000
+5. Open your browser to http://localhost:3000
+
+### Manual Start
+
+**Backend:**
+```bash
+cd backend
+npm start
+```
+
+**Frontend:**
+```bash
+cd frontend
+npm run dev
+```
+
+## Project Structure
+
 ```
 digital-archaeology/
-├── data/               # Local storage
-├── src/
-│   ├── ocr.py          # Tesseract Wrapper
-│   ├── embeddings.py   # Vector Models
-│   ├── indexer.py      # FAISS DB
-│   └── search.py       # Core Logic
-├── app.py              # UI
-├── setup_arch.sh       # Installer
-└── run.sh              # Launcher
+├── backend/                 # Express.js backend
+│   ├── routes/             # API route handlers
+│   ├── python_bridge.js    # Python integration layer
+│   ├── server.js           # Main server file
+│   └── package.json
+├── frontend/               # React frontend
+│   ├── src/
+│   │   ├── components/    # React components
+│   │   ├── services/      # API service layer
+│   │   ├── styles/        # CSS files
+│   │   └── App.jsx        # Main app component
+│   └── package.json
+├── src/                    # Python modules
+│   ├── search.py          # Search engine
+│   ├── qa_engine.py       # Q&A with Mistral
+│   ├── processor.py       # Document processing
+│   └── scraper.py         # Web crawler
+├── api_wrapper.py         # Python CLI wrapper for Node.js
+├── config/                # Configuration files
+├── data/                  # Data directories
+└── start.sh              # Unified startup script
 ```
+
+## API Endpoints
+
+- `POST /api/search` - Semantic search
+- `POST /api/qa` - Ask questions
+- `POST /api/upload` - Upload files
+- `POST /api/scraper/start` - Start web crawler
+- `GET /api/stats` - System statistics
+- `GET /api/stats/logs` - Application logs
+- `GET /api/health` - Health check
+
+## Features
+
+### Semantic Search
+Search documents using natural language queries. The system uses sentence transformers to create embeddings and FAISS for fast similarity search.
+
+### AI Q&A
+Ask questions about your documents and get intelligent answers powered by Mistral AI running locally via Ollama.
+
+### Web Crawler
+Automatically discover and download PDF notices from configured university websites.
+
+### Dark Cyberpunk Theme
+Stunning UI with:
+- Neon colors (cyan, magenta, green)
+- Glowing effects and animations
+- Glassmorphism cards
+- Terminal-inspired fonts
+- Responsive design
+
+## Configuration
+
+Edit `.env` files in root, `backend/`, and `frontend/` directories to customize:
+- API ports
+- MongoDB connection
+- Python virtual environment path
+- CORS settings
+- Upload limits
+
+## Development
+
+### Backend Development
+```bash
+cd backend
+npm run dev  # Uses nodemon for auto-reload
+```
+
+### Frontend Development
+```bash
+cd frontend
+npm run dev  # Vite dev server with HMR
+```
+
+### Build for Production
+```bash
+cd frontend
+npm run build
+```
+
+## Troubleshooting
+
+**npm not found:**
+```bash
+sudo pacman -S npm
+```
+
+**Mistral not responding:**
+```bash
+ollama serve
+ollama pull mistral
+```
+
+**Python modules not found:**
+```bash
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## License
+
+MIT
+
+## Version
+
+v3.0.0 - MERN Stack with Dark Cyberpunk Theme
