@@ -15,8 +15,9 @@ summarization:
   method: "mistral" # options: extract, mistral
   sentences: 3  # Used for extractive method only
   language: "english"
-  model_url: "http://localhost:11434/api/generate" # Ollama default
+  model_url: "http://127.0.0.1:11434/api/generate" # Ollama default (IPv4-safe)
   model_name: "mistral"
+  timeout: 120  # Timeout in seconds for Mistral API calls
 
 scraping:
   base_url: "https://www.giet.edu/" 

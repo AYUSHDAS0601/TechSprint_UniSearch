@@ -19,9 +19,14 @@ class DocumentProcessor:
         self.ocr = OCREngine()
         self.embedder = EmbeddingGenerator(config['search'].get('model_name', 'all-MiniLM-L6-v2'))
         self.indexer = FaissIndexer(Path(config['directories']['index']))
+        summarization_cfg = config.get('summarization', {})
         self.summarizer = DocumentSummarizer(
-            method=config.get('summarization', {}).get('method', 'extract'),
-            sentences_count=config.get('summarization', {}).get('sentences', 3)
+            method=summarization_cfg.get('method', 'extract'),
+            language=summarization_cfg.get('language', 'english'),
+            sentences_count=summarization_cfg.get('sentences', 3),
+            model_url=summarization_cfg.get('model_url'),
+            model_name=summarization_cfg.get('model_name', 'mistral'),
+            timeout=summarization_cfg.get('timeout', 90),
         )
         self.classifier = NoticeClassifier()
         

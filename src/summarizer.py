@@ -5,6 +5,7 @@ import nltk
 import requests
 import json
 from .utils import setup_logging
+from .qa_engine import MistralSummarizer
 
 logger = setup_logging("Summarizer")
 
@@ -14,7 +15,15 @@ class DocumentSummarizer:
     Supports multiple backends: BART, T5, Mistral, or fallback to extractive (sumy).
     """
     
-    def __init__(self, method="bart", language="english", sentences_count=3):
+    def __init__(
+        self,
+        method: str = "bart",
+        language: str = "english",
+        sentences_count: int = 3,
+        model_url: str | None = None,
+        model_name: str = "mistral",
+        timeout: int = 90,
+    ):
         """
         Initialize the summarizer.
         
@@ -26,6 +35,9 @@ class DocumentSummarizer:
         self.method = method
         self.language = language
         self.sentences_count = sentences_count
+        self.model_url = model_url or "http://localhost:11434/api/generate"
+        self.model_name = model_name
+        self.timeout = timeout
         self.model = None
         self.tokenizer = None
         self.pipeline = None
@@ -89,7 +101,11 @@ class DocumentSummarizer:
     def _init_mistral(self):
         """Initialize Mistral summarizer (requires Ollama server)."""
         try:
-            self.mistral_summarizer = MistralSummarizer()
+            self.mistral_summarizer = MistralSummarizer(
+                model_url=self.model_url,
+                model_name=self.model_name,
+                timeout=self.timeout,
+            )
             logger.info("✓ Mistral summarizer initialized (Ollama backend)")
         except Exception as e:
             logger.error(f"Failed to initialize Mistral summarizer: {e}")

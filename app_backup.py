@@ -4,7 +4,6 @@ import yaml
 import subprocess
 from pathlib import Path
 import pandas as pd
-import requests
 from src.search import SearchEngine
 from src.utils import setup_logging
 from src.styles import get_css, result_card_html
@@ -29,40 +28,15 @@ LOG_DIR = BASE_DIR / "logs"
 
 # Load Config
 def load_config():
-    with open(BASE_DIR / "config/config.yaml", "r") as f:
-        cfg = yaml.safe_load(f) or {}
-    return resolve_config_paths(cfg, BASE_DIR)
-
-def resolve_config_paths(cfg: dict, base_dir: Path) -> dict:
-    """
-    Convert configured directory paths to absolute paths to avoid cwd-related bugs.
-    """
-    cfg = dict(cfg or {})
-    dirs = dict(cfg.get("directories") or {})
-    for k, v in list(dirs.items()):
-        if isinstance(v, str) and v:
-            p = Path(v)
-            if not p.is_absolute():
-                dirs[k] = str((base_dir / p).resolve())
-    cfg["directories"] = dirs
-    return cfg
-
-def ollama_base_url(model_url: str) -> str:
-    # model_url usually ends with /api/generate
-    if not model_url:
-        return "http://127.0.0.1:11434"
-    idx = model_url.find("/api/")
-    return model_url[:idx] if idx != -1 else model_url.rstrip("/")
+    with open(BASE_DIR / "config/config.yaml", 'r') as f:
+        return yaml.safe_load(f)
 
 config = load_config()
 
 # Initialize Session State
 if 'engine' not in st.session_state:
     with st.spinner("Initializing Search Engine..."):
-        st.session_state.engine = SearchEngine(
-            DATA_DIR,
-            config=config,
-        )
+        st.session_state.engine = SearchEngine(DATA_DIR)
 
 if 'qa_engine' not in st.session_state:
     summa_cfg = config.get('summarization', {})
@@ -91,37 +65,6 @@ with st.sidebar:
     """, unsafe_allow_html=True)
     
     st.markdown("---")
-
-    # --- Ollama Diagnostics ---
-    st.markdown("### 🤖 Ollama / Mistral Status")
-    summa_cfg = config.get("summarization", {}) or {}
-    model_url = summa_cfg.get("model_url", "http://127.0.0.1:11434/api/generate")
-    model_name = summa_cfg.get("model_name", "mistral")
-    base = ollama_base_url(model_url)
-
-    try:
-        tags = requests.get(f"{base}/api/tags", timeout=3).json()
-        models = [m.get("name") for m in (tags.get("models") or []) if isinstance(m, dict)]
-        if model_name in models:
-            st.success(f"Connected ✓ Model available: `{model_name}`")
-        else:
-            st.warning(
-                "Connected to Ollama, but model not found.\n\n"
-                f"Expected: `{model_name}`\n\n"
-                "Run:\n"
-                f"`ollama pull {model_name}`"
-            )
-        with st.expander("Show Ollama details"):
-            st.code({"base_url": base, "models": models})
-    except Exception as e:
-        st.error(
-            "Cannot reach Ollama.\n\n"
-            f"Expected endpoint: `{model_url}`\n\n"
-            "Fix:\n"
-            "- Start Ollama: `ollama serve`\n"
-            f"- Ensure model exists: `ollama pull {model_name}`\n\n"
-            f"Error: {e}"
-        )
     
     st.markdown("""
     <div style="background: rgba(0, 240, 255, 0.05); 
@@ -204,7 +147,7 @@ with tab_search:
     with col2:
         category_filter = st.multiselect(
             "Filter", 
-            ["Examination", "Scholarship", "Transport", "Academic", "Administrative", "Events", "General"], 
+            ["Exam", "General", "Scholarship", "Holiday"], 
             default=[], 
             label_visibility="collapsed", 
             placeholder="🏷️ Category"

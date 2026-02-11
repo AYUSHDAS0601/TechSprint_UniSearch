@@ -1,88 +1,138 @@
-# Digital Archaeology 🏛️
-**Semantic Search Engine for University Notices**
+# Digital Archaeology (Streamlit)
 
-A hackathon-ready prototype built for Arch Linux + KDE Plasma. This tool ingests scanned PDFs/Images of university notices (exam schedules, scholarships, etc.), OCRs them using Tesseract, and provides a semantic search interface using Sentence Transformers and FAISS.
+🏛️ **AI-Powered Semantic Search Engine for University Notices**
 
-## 🚀 Features
-- **Offline Capable**: Runs locally without internet (after setup).
-- **Smart Search**: Understands "Java Lab Exam" vs "Java Course Syllabus".
-- **Arch Native**: Optimized for `pacman` dependencies (`tesseract`, `poppler`).
-- **Fast**: Uses FAISS CPU for sub-second vector search.
+## Overview
 
-## 🛠️ System Requirements
-- **OS**: Arch Linux
-- **Python**: 3.12+
-- **RAM**: 4GB minimum (8GB recommended)
-- **Disk**: ~1GB (for ML models and dependencies)
+Digital Archaeology is a **Streamlit** application that provides semantic search capabilities for notices (PDFs/images) using embeddings + FAISS, plus optional local LLM Q&A via **Ollama (Mistral)**.
 
-## 📦 Installation
-Total setup time: < 10 minutes.
+- 🔍 **Semantic Search** - Find documents using natural language queries
+- 💬 **AI Q&A** - Ask questions and get answers powered by Mistral AI
+- 📊 **Dashboard** - Monitor system statistics and activity logs
+- 🕸️ **Web Crawler** - Automatically download notices from university websites
+- 🎨 **Dark Cyberpunk Theme** - Stunning neon-accented UI with glassmorphism effects
 
-1. **Clone/Navigate to folder**:
-   ```bash
-   cd digital-archaeology
-   ```
+## Tech Stack
 
-2. **Run Setup Script**:
-   This installs system dependencies (`tesseract`, `poppler`) and Python libs.
-   ```bash
-   chmod +x setup_arch.sh
-   ./setup_arch.sh
-   ```
-   *Note: Requires `sudo` password for `pacman`.*
+- **UI**: Streamlit
+- **AI/ML**: Python (sentence-transformers, FAISS, Mistral via Ollama)
+- **OCR**: Tesseract + PyMuPDF
 
-## 🏃 Usage
+## Prerequisites
 
-1. **Start the App**:
-   ```bash
-   ./run.sh
-   ```
-   The browser should open to `http://localhost:8501`.
+- Python 3.10+
+- Tesseract OCR
+- Ollama with Mistral model (for Q&A features)
 
-2. **Ingest Data**:
-   - Go to the sidebar.
-   - Click **"Browse files"** to upload PDFs or Images.
-   - Click **"Process & Index Files"**.
-   - Watch the progress bar as it extracts text and builds vectors.
+## Installation
 
-3. **Search**:
-   - Type queries like:
-     - *"When is the bus to the hostel?"*
-     - *"Scholarship criteria for OBC students"*
-     - *"Data Structures exam date"*
+### 1. Install System Dependencies (Arch)
 
-## 🧪 Testing
-### Sample Queries (Mock Data)
-Create a few dummy PDFs or images regarding:
-- **Bus Schedule.pdf**: "Bus 5 leaves Campus at 5 PM for Hostel A."
-- **Scholarship.img**: "OBC Scholarship 2024: Income < 2 Lakhs required."
-- **Exam Notice.pdf**: "Final Exam: CS101 Java Lab on Oct 15th, 2024."
+```bash
+# Arch Linux
+sudo pacman -S python tesseract tesseract-data-eng poppler
 
-**Query** -> **Expected Result**
-- "hostel bus timing" -> **Bus Schedule.pdf**
-- "income limit for aid" -> **Scholarship.img**
-- "CS101 practicals" -> **Exam Notice.pdf**
+# Install Ollama and Mistral
+curl https://ollama.ai/install.sh | sh
+ollama pull mistral
+```
 
-## 🔧 Troubleshooting on Arch
-**Issue**: `tesseract: command not found`
-**Fix**: Ensure base OCR is installed: `sudo pacman -S tesseract tesseract-data-eng`
+### 2. Set Up Python Environment
 
-**Issue**: `streamlit: command not found`
-**Fix**: Ensure you are running with `./run.sh` which handles the virtual environment activation.
+```bash
+./setup_arch.sh
+```
 
-**Issue**: `Wayland/Display` errors in `app.py`
-**Fix**: Streamlit runs in the browser, so it works seamlessly on KDE Plasma (Wayland or X11).
+## Running the Application
 
-## 📂 Project Structure
+### Quick Start
+
+```bash
+./run.sh
+```
+
+Open: `http://localhost:8501`
+
+## Project Structure
+
 ```
 digital-archaeology/
-├── data/               # Local storage
-├── src/
-│   ├── ocr.py          # Tesseract Wrapper
-│   ├── embeddings.py   # Vector Models
-│   ├── indexer.py      # FAISS DB
-│   └── search.py       # Core Logic
-├── app.py              # UI
-├── setup_arch.sh       # Installer
-└── run.sh              # Launcher
+├── src/                    # Python modules
+│   ├── search.py          # Search engine
+│   ├── qa_engine.py       # Q&A with Mistral
+│   ├── processor.py       # Document processing
+│   └── scraper.py         # Web crawler
+├── config/                # Configuration files
+├── data/                  # Data directories
+└── run.sh                 # Streamlit launcher
 ```
+
+## Features
+
+### Semantic Search
+Search documents using natural language queries. The system uses sentence transformers to create embeddings and FAISS for fast similarity search.
+
+### AI Q&A
+Ask questions about your documents and get intelligent answers powered by Mistral AI running locally via Ollama.
+
+### Web Crawler
+Automatically discover and download PDF notices from configured university websites.
+
+### Dark Cyberpunk Theme
+Stunning UI with:
+- Neon colors (cyan, magenta, green)
+- Glowing effects and animations
+- Glassmorphism cards
+- Terminal-inspired fonts
+- Responsive design
+
+## Configuration
+
+Edit `.env` files in root, `backend/`, and `frontend/` directories to customize:
+- API ports
+- MongoDB connection
+- Python virtual environment path
+- CORS settings
+- Upload limits
+
+## Development
+
+### Backend Development
+```bash
+cd backend
+npm run dev  # Uses nodemon for auto-reload
+```
+
+### Frontend Development
+```bash
+cd frontend
+npm run dev  # Vite dev server with HMR
+```
+
+### Build for Production
+```bash
+cd frontend
+npm run build
+```
+
+## Troubleshooting
+
+**Mistral not responding:**
+```bash
+ollama pull mistral
+ollama serve
+```
+
+**Python modules not found:**
+```bash
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## License
+
+MIT
+
+## Version
+
+v3.x - Streamlit app + local Ollama (Mistral)

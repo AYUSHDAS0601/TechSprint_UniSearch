@@ -32,7 +32,7 @@ def get_css():
                 radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 50%);
             pointer-events: none;
-            z-index: 0;
+            z-index: -1;
             animation: pulse-bg 8s ease-in-out infinite;
         }
         
@@ -61,7 +61,7 @@ def get_css():
             opacity: 0.4;
             animation: particles-float 20s ease-in-out infinite;
             pointer-events: none;
-            z-index: 0;
+            z-index: -1;
         }
         
         @keyframes particles-float {

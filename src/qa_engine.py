@@ -13,9 +13,16 @@ class MistralQAEngine:
     Uses RAG (Retrieval-Augmented Generation) approach.
     """
     
-    def __init__(self, model_url="http://localhost:11434/api/generate", model_name="mistral"):
-        self.model_url = model_url
+    def __init__(
+        self,
+        model_url: str = "http://localhost:11434/api/generate",
+        model_name: str = "mistral",
+        timeout: int = 120,
+    ):
+        # Prefer IPv4 loopback for Ollama on systems binding only 127.0.0.1
+        self.model_url = (model_url or "").replace("http://localhost:", "http://127.0.0.1:")
         self.model_name = model_name
+        self.timeout = timeout
         logger.info(f"Initialized Mistral Q&A Engine with model: {model_name}")
     
     def answer_question(self, question: str, context_docs: List[Dict]) -> Dict[str, str]:
@@ -104,7 +111,7 @@ Instructions:
 Answer:"""
         return prompt
     
-    def _query_mistral(self, prompt: str, timeout=60) -> str:
+    def _query_mistral(self, prompt: str) -> str:
         """Query Mistral via Ollama API."""
         payload = {
             "model": self.model_name,
@@ -115,20 +122,38 @@ Answer:"""
                 "num_predict": 300   # Max tokens in response
             }
         }
-        
-        response = requests.post(self.model_url, json=payload, timeout=timeout)
-        response.raise_for_status()
-        
-        result = response.json()
-        return result.get("response", "").strip()
+
+        timeout = self.timeout or 120
+        try:
+            response = requests.post(self.model_url, json=payload, timeout=timeout)
+            response.raise_for_status()
+            result = response.json()
+            return (result.get("response", "") or "").strip()
+        except requests.exceptions.RequestException as e:
+            # One extra fallback: if user configured localhost and system prefers IPv6,
+            # retry once on 127.0.0.1.
+            if "localhost" in self.model_url:
+                fallback_url = self.model_url.replace("http://localhost:", "http://127.0.0.1:")
+                logger.warning(f"Ollama connection failed, retrying with IPv4: {fallback_url}")
+                response = requests.post(fallback_url, json=payload, timeout=timeout)
+                response.raise_for_status()
+                result = response.json()
+                return (result.get("response", "") or "").strip()
+            raise e
 
 
 class MistralSummarizer:
     """Standalone Mistral summarizer for document processing."""
     
-    def __init__(self, model_url="http://localhost:11434/api/generate", model_name="mistral"):
-        self.model_url = model_url
+    def __init__(
+        self,
+        model_url: str = "http://localhost:11434/api/generate",
+        model_name: str = "mistral",
+        timeout: int = 90,
+    ):
+        self.model_url = (model_url or "").replace("http://localhost:", "http://127.0.0.1:")
         self.model_name = model_name
+        self.timeout = timeout
 
     def summarize(self, text: str) -> str:
         if not text or len(text.split()) < 20:
@@ -150,8 +175,10 @@ Summary:"""
             }
         }
 
+        timeout = self.timeout or 90
+
         try:
-            response = requests.post(self.model_url, json=payload, timeout=60)
+            response = requests.post(self.model_url, json=payload, timeout=timeout)
             response.raise_for_status()
             result = response.json()
             return result.get("response", "").strip()

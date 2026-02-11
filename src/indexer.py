@@ -91,3 +91,18 @@ class FaissIndexer:
             embedding = embedding.reshape(1, -1)
             
         self.add_documents(embedding, [doc_metadata])
+
+    def clear(self):
+        """
+        Clears the in-memory index and metadata, and removes persisted files if they exist.
+        """
+        try:
+            self._create_new_index()
+            # Remove on-disk files
+            if self.index_file.exists():
+                self.index_file.unlink()
+            if self.metadata_file.exists():
+                self.metadata_file.unlink()
+            logger.info("Cleared FAISS index and metadata.")
+        except Exception as e:
+            logger.error(f"Error clearing index: {e}")

@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Optional
 import numpy as np
 from .embeddings import EmbeddingGenerator
 from .indexer import FaissIndexer
@@ -9,15 +9,52 @@ from .utils import setup_logging, get_file_list
 logger = setup_logging("Search_Engine")
 
 class SearchEngine:
-    def __init__(self, data_dir: Path):
-        self.data_dir = data_dir
-        self.raw_dir = data_dir / "raw"
-        self.index_dir = data_dir / "index"
+    def __init__(
+        self,
+        data_dir: Path,
+        config: Optional[Dict] = None,
+    ):
+        """
+        Args:
+            data_dir: Base data directory (contains raw/, index/, metadata/, etc.)
+            config: Full app config dict (recommended). If omitted, a minimal config
+                    will be derived from data_dir.
+        """
+        self.data_dir = Path(data_dir)
+        self.raw_dir = self.data_dir / "raw"
+        self.index_dir = self.data_dir / "index"
+
+        self.config = config or self._default_config_from_data_dir(self.data_dir)
         
         # Initialize components
         self.ocr = OCREngine()
-        self.embedder = EmbeddingGenerator()
+        model_name = (self.config.get("search", {}) or {}).get("model_name", "all-MiniLM-L6-v2")
+        self.embedder = EmbeddingGenerator(model_name)
         self.indexer = FaissIndexer(self.index_dir)
+        self.processor = None
+
+    @staticmethod
+    def _default_config_from_data_dir(data_dir: Path) -> Dict:
+        data_dir = Path(data_dir)
+        return {
+            "directories": {
+                "raw": str(data_dir / "raw"),
+                "processed": str(data_dir / "processed"),
+                "index": str(data_dir / "index"),
+                "watch": str(data_dir / "watch"),
+                "metadata": str(data_dir / "metadata"),
+                "logs": str(data_dir.parent / "logs"),
+            },
+            "search": {"model_name": "all-MiniLM-L6-v2", "top_k": 5},
+            "summarization": {
+                "method": "extract",
+                "sentences": 3,
+                "language": "english",
+                "model_url": "http://127.0.0.1:11434/api/generate",
+                "model_name": "mistral",
+                "timeout": 120,
+            },
+        }
 
     def ingest_new_files(self) -> List[str]:
         """
@@ -34,33 +71,11 @@ class SearchEngine:
             return []
 
         indexed_count = 0
-        
-        # Initialize processor if not already done (SearchEngine creates its own components usually, 
-        # but better to share or re-init here. Since SearchEngine is long-lived, we init once)
-        if not hasattr(self, 'processor'):
-             # Re-construct config dict from data_dir path for now, 
-             # or ideally pass config to SearchEngine. 
-             # For now we'll assume standard structure relative to data_dir
-             config = {
-                 'directories': {
-                     'index': str(self.data_dir / "index"),
-                     'metadata': str(self.data_dir / "metadata"),
-                     'processed': str(self.data_dir / "processed"),
-                     'watch': str(self.data_dir / "watch")
-                 },
-                 'search': {'model_name': 'all-MiniLM-L6-v2'} # Default
-             }
-             from .processor import DocumentProcessor
-             self.processor = DocumentProcessor(config)
-             # Share the same indexer instance to avoid locking/sync issues if they were different,
-             # but here Processor creates its own. 
-             # Actually, Processor creates its own indexer. 
-             # We should probably let Processor manage the index.
-             # Or inject self.indexer into Processor?
-             # For simplicity in this refactor, let's just let Processor do its thing
-             # and reload the index here if needed, or just rely on Processor.
-             # Wait, SearchEngine.indexer is used for search. 
-             # If Processor updates the index on disk, SearchEngine.indexer (in memory) needs to reload.
+
+        # Initialize processor once using the real config
+        if self.processor is None:
+            from .processor import DocumentProcessor
+            self.processor = DocumentProcessor(self.config)
              
         for file_path in new_files:
             result = self.processor.process_file(file_path)
