@@ -1,9 +1,15 @@
+"""
+Dynamic web crawler for university pages.
+Takes any URL, extracts text content, and indexes it into FAISS.
+Also supports downloading PDFs/images for OCR processing.
+"""
 import requests
 from bs4 import BeautifulSoup
 import logging
-import yaml
 import json
+import re
 import random
+import hashlib
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 import time
@@ -12,263 +18,362 @@ from .utils import setup_logging
 
 logger = setup_logging("Scraper")
 
-# List of common User-Agents to rotate
 USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0",
 ]
 
-class NoticesCrawler:
-    """Advanced web crawler for discovering and downloading university notices."""
-    
-    def __init__(self, config_path="config/config.yaml"):
-        with open(config_path, 'r') as f:
-            self.config = yaml.safe_load(f)
-        
-        self.base_url = self.config['scraping']['base_url']
-        self.download_dir = Path(self.config['directories']['watch'])
-        self.download_dir.mkdir(parents=True, exist_ok=True)
+DOWNLOAD_EXTS = {'.pdf', '.jpg', '.jpeg', '.png', '.doc', '.docx'}
+SKIP_EXTS = {'.js', '.css', '.ico', '.svg', '.woff', '.woff2', '.ttf', '.eot', '.map'}
+
+def _url_ext(url: str) -> str:
+    path = urlparse(url).path.lower()
+    return Path(path).suffix if '.' in path else ''
+
+
+class WebCrawler:
+    """
+    Flexible web crawler that:
+    1. Accepts any seed URL(s)
+    2. Extracts clean text from HTML pages  
+    3. Downloads binary files (PDF/images) for OCR
+    4. Saves key-value page records for indexing
+    5. Optionally restricts to same domain
+    """
+
+    def __init__(
+        self,
+        download_dir: Path,
+        data_dir: Path,
+        rate_limit: float = 1.5,
+        timeout: int = 12,
+        retry_count: int = 2,
+        same_domain_only: bool = True,
+    ):
+        self.download_dir = Path(download_dir)
+        self.data_dir = Path(data_dir)
+        self.pages_dir = self.data_dir / "crawled_pages"
         self.history_file = self.download_dir / "download_history.txt"
-        self.downloaded_files = self._load_history()
-        
-        # Crawling settings
-        self.retry_count = self.config['scraping'].get('retry_count', 3)
-        self.timeout = self.config['scraping'].get('timeout', 10)
-        self.max_depth = self.config['scraping'].get('max_depth', 2)
-        self.rate_limit = self.config['scraping'].get('rate_limit', 1.0)
-        
-        # Crawl tracking
-        self.visited_urls = set()
-        self.queued_urls = set()
-        
-        # Initialize Session
+
+        self.download_dir.mkdir(parents=True, exist_ok=True)
+        self.pages_dir.mkdir(parents=True, exist_ok=True)
+
+        self.rate_limit = rate_limit
+        self.timeout = timeout
+        self.retry_count = retry_count
+        self.same_domain_only = same_domain_only
+
+        self.downloaded_urls = self._load_history()
         self.session = requests.Session()
-        self._rotate_user_agent()
-        
-        # Domain restriction
-        self.allowed_domain = urlparse(self.base_url).netloc
+        self._rotate_ua()
 
-    def _rotate_user_agent(self):
-        """Rotate User-Agent to mimic different browsers."""
-        ua = random.choice(USER_AGENTS)
+    # ── helpers ──────────────────────────────────────────────────────────────
+
+    def _rotate_ua(self):
         self.session.headers.update({
-            'User-Agent': ua,
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'User-Agent': random.choice(USER_AGENTS),
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.5',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
         })
-        logger.debug(f"Rotated User-Agent to: {ua[:50]}...")
 
-    def _load_history(self):
-        """Load previously downloaded file URLs."""
+    def _load_history(self) -> set:
         if self.history_file.exists():
-            with open(self.history_file, 'r') as f:
-                return set(f.read().splitlines())
+            return set(self.history_file.read_text().splitlines())
         return set()
 
-    def _save_history(self, url):
-        """Save downloaded URL to history."""
+    def _save_to_history(self, url: str):
         with open(self.history_file, 'a') as f:
-            f.write(f"{url}\n")
-        self.downloaded_files.add(url)
+            f.write(url + '\n')
+        self.downloaded_urls.add(url)
 
-    def crawl(self, limit=None, start_urls=None):
-        """
-        Main crawling method with BFS-style recursive discovery.
-        
-        Args:
-            limit: Maximum number of files to download
-            start_urls: List of seed URLs to start crawling from
-        """
-        # Initialize with target URLs from config or provided start URLs
-        if start_urls:
-            seed_urls = start_urls
-        else:
-            seed_urls = self.config['scraping'].get('target_urls', [self.base_url])
-        
-        logger.info(f"Starting crawl from {len(seed_urls)} seed URL(s)")
-        
-        # BFS queue: (url, depth)
-        queue = deque([(url, 0) for url in seed_urls])
-        
-        limit = limit or self.config['scraping']['download_limit']
-        download_count = 0
-        
-        while queue and download_count < limit:
-            current_url, depth = queue.popleft()
-            
-            # Skip if already visited
-            if current_url in self.visited_urls:
-                continue
-                
-            # Skip if exceeds max depth
-            if depth > self.max_depth:
-                logger.debug(f"Skipping {current_url} (depth {depth} > max {self.max_depth})")
-                continue
-            
-            # Mark as visited
-            self.visited_urls.add(current_url)
-            logger.info(f"Crawling [{depth}/{self.max_depth}]: {current_url}")
-            
-            # Fetch page
-            soup = self._fetch_page(current_url)
-            if not soup:
-                continue
-            
-            # Find all links on the page
-            links = soup.find_all('a', href=True)
-            
-            for link in links:
-                if download_count >= limit:
-                    break
-                
-                href = link['href']
-                full_url = urljoin(current_url, href)
-                link_text = link.get_text(strip=True)
-                
-                # Check domain restriction
-                if not self._is_same_domain(full_url):
-                    continue
-                
-                # Check if it's a downloadable file
-                if self._is_file_url(full_url):
-                    if full_url not in self.downloaded_files:
-                        if self._download_file(full_url, link_text, current_url):
-                            download_count += 1
-                            logger.info(f"Downloaded {download_count}/{limit} files")
-                            time.sleep(self.rate_limit)
-                
-                # If it's a page link, add to crawl queue
-                elif self._is_relevant_page(link_text, full_url):
-                    if full_url not in self.visited_urls and full_url not in self.queued_urls:
-                        queue.append((full_url, depth + 1))
-                        self.queued_urls.add(full_url)
-                        logger.debug(f"Queued: {full_url} (depth {depth + 1})")
-            
-            # Rate limiting between page fetches
-            time.sleep(self.rate_limit)
-        
-        logger.info(f"Crawl complete. Downloaded {download_count} files, visited {len(self.visited_urls)} pages")
-        return download_count
+    def _url_slug(self, url: str) -> str:
+        """Short safe filename from URL."""
+        return hashlib.md5(url.encode()).hexdigest()[:12]
 
-    def _is_same_domain(self, url):
-        """Check if URL is from the same domain."""
-        return urlparse(url).netloc == self.allowed_domain
+    # ── fetch ─────────────────────────────────────────────────────────────────
 
-    def _is_file_url(self, url):
-        """Check if URL points to a downloadable file."""
-        return url.lower().endswith(('.pdf', '.jpg', '.png', '.jpeg', '.doc', '.docx', '.xls', '.xlsx'))
+    def _fetch(self, url: str):
+        """Fetch URL, return (response, soup) or (None, None)."""
+        for attempt in range(self.retry_count):
+            try:
+                resp = self.session.get(url, timeout=self.timeout, verify=False, allow_redirects=True)
+                resp.raise_for_status()
+                ct = resp.headers.get('Content-Type', '')
+                if 'text/html' in ct:
+                    soup = BeautifulSoup(resp.content, 'lxml')
+                    return resp, soup
+                return resp, None
+            except Exception as e:
+                logger.warning(f"Fetch attempt {attempt+1} failed for {url}: {e}")
+                time.sleep(1 + attempt)
+        return None, None
 
-    def _is_relevant_page(self, text, url):
+    # ── text extraction ───────────────────────────────────────────────────────
+
+    def _extract_page_data(self, url: str, soup: BeautifulSoup) -> dict:
         """
-        Determine if a link is worth crawling for more content.
-        Uses keyword matching to find notice/exam pages.
+        Extract structured key-value data from a page.
+        Returns a dict with: title, description, headings, paragraphs, links,
+                             dates, keywords, full_text
         """
-        text = text.lower()
-        url = url.lower()
-        
-        # Ignore common navigation/footer links
-        ignore_terms = [
-            'privacy', 'terms', 'copyright', 'contact', 'login', 
-            'signup', 'register', 'home', 'about', 'careers',
-            'facebook', 'twitter', 'instagram', 'linkedin'
-        ]
-        if any(term in text for term in ignore_terms):
+        if soup is None:
+            return {}
+
+        # Remove nav/footer/script/style junk
+        for tag in soup(['nav', 'footer', 'script', 'style', 'header', 'aside']):
+            tag.decompose()
+
+        title = (soup.find('title') or soup.find('h1') or soup.find('h2'))
+        title_text = title.get_text(strip=True) if title else urlparse(url).path
+
+        # Meta description
+        meta_desc = ''
+        meta = soup.find('meta', attrs={'name': 'description'})
+        if meta:
+            meta_desc = meta.get('content', '')
+
+        # Headings hierarchy
+        headings = []
+        for tag in soup.find_all(['h1', 'h2', 'h3', 'h4']):
+            txt = tag.get_text(strip=True)
+            if txt and len(txt) > 3:
+                headings.append({'level': tag.name, 'text': txt})
+
+        # Main paragraph text
+        paragraphs = []
+        for p in soup.find_all('p'):
+            txt = p.get_text(strip=True)
+            if txt and len(txt) > 30:
+                paragraphs.append(txt)
+
+        # All text combined and cleaned
+        full_text = ' '.join(soup.stripped_strings)
+        full_text = re.sub(r'\s+', ' ', full_text).strip()
+
+        # Date patterns in text
+        date_pattern = re.compile(
+            r'\b(\d{1,2}[-/]\d{1,2}[-/]\d{2,4}|\d{4}[-/]\d{1,2}[-/]\d{1,2}|'
+            r'(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\s+\d{1,2},?\s+\d{4})\b',
+            re.IGNORECASE
+        )
+        dates = list(set(date_pattern.findall(full_text)))[:10]
+
+        # Keyword extraction (simple frequency)
+        stop_words = {'the','a','an','and','or','of','to','in','is','it','be','are','was','for',
+                     'this','that','with','from','have','has','at','by','on','as','but','not'}
+        words = re.findall(r'\b[a-zA-Z]{4,}\b', full_text.lower())
+        freq = {}
+        for w in words:
+            if w not in stop_words:
+                freq[w] = freq.get(w, 0) + 1
+        keywords = sorted(freq, key=lambda x: -freq[x])[:20]
+
+        # Outbound links
+        links_out = []
+        for a in soup.find_all('a', href=True):
+            href = urljoin(url, a['href'])
+            text = a.get_text(strip=True)
+            links_out.append({'url': href, 'text': text[:100]})
+
+        return {
+            'source_url': url,
+            'title': title_text[:200],
+            'description': meta_desc[:500],
+            'headings': headings[:20],
+            'paragraphs': paragraphs[:30],
+            'dates_found': dates,
+            'keywords': keywords,
+            'full_text': full_text[:8000],
+            'links': links_out[:50],
+            'scraped_at': time.strftime('%Y-%m-%dT%H:%M:%S'),
+            'domain': urlparse(url).netloc,
+        }
+
+    # ── download binary files ─────────────────────────────────────────────────
+
+    def _download_file(self, url: str, title: str, source_page: str) -> bool:
+        if url in self.downloaded_urls:
             return False
-        
-        # Prioritize notice-related keywords
-        relevant_keywords = [
-            'notice', 'exam', 'circular', 'announcement', 
-            'schedule', 'result', 'admission', 'semester',
-            'news', 'event', 'academic', 'student'
-        ]
-        
-        # Check both text and URL path for keywords
-        if any(kw in text for kw in relevant_keywords):
+        try:
+            resp = self.session.get(url, stream=True, timeout=self.timeout, verify=False)
+            resp.raise_for_status()
+
+            filename = Path(urlparse(url).path).name or f"file_{self._url_slug(url)}.pdf"
+            # sanitize
+            filename = re.sub(r'[^\w.\-]', '_', filename)[:120]
+            save_path = self.download_dir / filename
+            if save_path.exists():
+                save_path = self.download_dir / f"{save_path.stem}_{self._url_slug(url)}{save_path.suffix}"
+
+            with open(save_path, 'wb') as f:
+                for chunk in resp.iter_content(8192):
+                    f.write(chunk)
+
+            meta = {
+                'source_url': url, 'source_page': source_page,
+                'link_text': title, 'scraped_at': time.strftime('%Y-%m-%dT%H:%M:%S'),
+            }
+            save_path.with_suffix(save_path.suffix + '.meta.json').write_text(
+                json.dumps(meta, indent=2)
+            )
+            self._save_to_history(url)
+            logger.info(f"Downloaded binary: {save_path.name}")
             return True
-        if any(kw in url for kw in relevant_keywords):
-            return True
-        
-        return False
+        except Exception as e:
+            logger.warning(f"Binary download failed for {url}: {e}")
+            return False
 
-    def _fetch_page(self, url):
-        """Fetch and parse a web page with retry logic."""
-        for attempt in range(self.retry_count):
-            try:
-                # Disable SSL verify for robustness
-                response = self.session.get(url, timeout=self.timeout, verify=False)
-                response.raise_for_status()
-                
-                # Only parse HTML content
-                content_type = response.headers.get('Content-Type', '')
-                if 'text/html' not in content_type:
-                    logger.debug(f"Skipping non-HTML content: {content_type}")
-                    return None
-                
-                return BeautifulSoup(response.content, 'lxml')
-                
-            except Exception as e:
-                logger.warning(f"Fetch error ({attempt+1}/{self.retry_count}) for {url}: {e}")
-                time.sleep(2 * (attempt + 1))
-        
-        return None
+    # ── save page record ──────────────────────────────────────────────────────
 
-    def _download_file(self, url, title, source_page):
-        """Download a file with metadata."""
-        for attempt in range(self.retry_count):
-            try:
-                logger.info(f"Downloading: {title[:40] if title else 'Untitled'}... ({url})")
-                
-                response = self.session.get(url, stream=True, timeout=self.timeout, verify=False)
-                response.raise_for_status()
-                
-                # Generate filename
-                filename = Path(url).name or f"download_{int(time.time())}.pdf"
-                save_path = self.download_dir / filename
-                
-                # Avoid overwriting existing files
-                if save_path.exists():
-                    save_path = self.download_dir / f"{save_path.stem}_{int(time.time())}{save_path.suffix}"
-                
-                # Download file
-                with open(save_path, 'wb') as f:
-                    for chunk in response.iter_content(chunk_size=8192):
-                        f.write(chunk)
-                
-                # Save metadata
-                meta = {
-                    "source_url": url,
-                    "source_page": source_page,
-                    "original_link_text": title,
-                    "scraped_at": time.time(),
-                    "headers": dict(response.headers)
-                }
-                meta_path = save_path.with_suffix(save_path.suffix + ".meta.json")
-                with open(meta_path, 'w') as f:
-                    json.dump(meta, f, indent=2, default=str)
-                
-                self._save_history(url)
-                logger.info(f"✓ Saved: {save_path.name}")
-                return True
-                
-            except Exception as e:
-                logger.warning(f"Download error ({attempt+1}/{self.retry_count}): {e}")
-                time.sleep(2 * (attempt + 1))
-        
-        return False
+    def _save_page_record(self, data: dict) -> Path:
+        slug = self._url_slug(data['source_url'])
+        path = self.pages_dir / f"page_{slug}.json"
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+        return path
 
-# Backwards compatibility alias
+    # ── main crawl ────────────────────────────────────────────────────────────
+
+    def crawl(
+        self,
+        start_urls: list,
+        max_pages: int = 30,
+        max_depth: int = 2,
+        download_files: bool = True,
+        on_page_saved=None,          # callback(page_data) for live indexing
+    ) -> dict:
+        """
+        Crawl from start_urls up to max_pages pages (and optional file downloads).
+
+        Returns:
+            {
+              'pages_scraped': int,
+              'files_downloaded': int,
+              'page_records': [path, ...],
+            }
+        """
+        allowed_domains = {urlparse(u).netloc for u in start_urls} if self.same_domain_only else None
+
+        visited: set = set()
+        queue: deque = deque([(u, 0) for u in start_urls])
+        pages_scraped = 0
+        files_downloaded = 0
+        page_records = []
+
+        while queue and pages_scraped < max_pages:
+            url, depth = queue.popleft()
+            if url in visited:
+                continue
+            visited.add(url)
+
+            ext = _url_ext(url)
+            if ext in SKIP_EXTS:
+                continue
+
+            # Binary file to download
+            if ext in DOWNLOAD_EXTS:
+                if download_files:
+                    if self._download_file(url, '', url):
+                        files_downloaded += 1
+                        time.sleep(self.rate_limit)
+                continue
+
+            # Domain restriction
+            if allowed_domains and urlparse(url).netloc not in allowed_domains:
+                continue
+
+            logger.info(f"[depth={depth}] Crawling: {url}")
+            resp, soup = self._fetch(url)
+            if soup is None:
+                continue
+
+            self._rotate_ua()
+
+            # Extract and save page data
+            page_data = self._extract_page_data(url, soup)
+            if page_data.get('full_text'):
+                record_path = self._save_page_record(page_data)
+                page_records.append(str(record_path))
+                pages_scraped += 1
+                self._save_to_history(url)
+
+                if on_page_saved:
+                    try:
+                        on_page_saved(page_data)
+                    except Exception as e:
+                        logger.error(f"on_page_saved callback failed: {e}")
+
+            # Enqueue children
+            if depth < max_depth:
+                for link_info in page_data.get('links', []):
+                    child_url = link_info['url']
+                    if child_url not in visited:
+                        child_ext = _url_ext(child_url)
+                        if child_ext not in SKIP_EXTS:
+                            queue.append((child_url, depth + 1))
+
+            time.sleep(self.rate_limit)
+
+        logger.info(f"Crawl done. pages={pages_scraped}, files={files_downloaded}")
+        return {
+            'pages_scraped': pages_scraped,
+            'files_downloaded': files_downloaded,
+            'page_records': page_records,
+        }
+
+
+class NoticesCrawler(WebCrawler):
+    """
+    Legacy-compatible wrapper that reads from config.yaml
+    and crawls the configured university URLs.
+    """
+
+    def __init__(self, config_path="config/config.yaml"):
+        import yaml
+        with open(config_path, 'r') as f:
+            self.config = yaml.safe_load(f)
+
+        base = Path(config_path).parent.parent
+        download_dir = base / self.config['directories'].get('watch', 'data/watch')
+        data_dir = base / "data"
+        rate = self.config['scraping'].get('rate_limit', 1.5)
+        timeout = self.config['scraping'].get('timeout', 12)
+        retry = self.config['scraping'].get('retry_count', 2)
+
+        super().__init__(
+            download_dir=download_dir,
+            data_dir=data_dir,
+            rate_limit=rate,
+            timeout=timeout,
+            retry_count=retry,
+        )
+        self._config_start_urls = self.config['scraping'].get('target_urls', [])
+        self._download_limit = self.config['scraping'].get('download_limit', 20)
+
+    def crawl_config(self, limit=None, on_page_saved=None):
+        """Crawl using config URLs."""
+        result = self.crawl(
+            start_urls=self._config_start_urls,
+            max_pages=limit or self._download_limit,
+            on_page_saved=on_page_saved,
+        )
+        return result['pages_scraped'] + result['files_downloaded']
+
+    # keep old signature for backwards compat
+    def crawl(self, start_urls=None, limit=None, max_pages=None, **kwargs):
+        if isinstance(start_urls, int):
+            # old API: crawl(limit=N)
+            limit = start_urls
+            start_urls = None
+
+        if start_urls is None:
+            start_urls = self._config_start_urls
+        if max_pages is None:
+            max_pages = limit or self._download_limit
+
+        return super().crawl(start_urls=start_urls, max_pages=max_pages, **kwargs)
+
+
+# Alias
 NoticesScraper = NoticesCrawler
-
-if __name__ == "__main__":
-    # Test the crawler
-    import logging
-    logging.basicConfig(level=logging.INFO)
-    
-    crawler = NoticesCrawler()
-    print("Starting web crawler...")
-    downloaded = crawler.crawl(limit=10)
-    print(f"Crawling complete. Downloaded {downloaded} files.")

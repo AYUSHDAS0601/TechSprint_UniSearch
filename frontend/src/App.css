@@ -1,0 +1,12 @@
+/* App-specific overrides — keep index.css as the design system */
+
+/* Chat tab special height handling */
+.chat-shell {
+  height: 100%;
+}
+
+/* Remove any default Vite styles that might conflict */
+#root {
+  height: 100%;
+  width: 100%;
+}
